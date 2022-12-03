@@ -8,7 +8,7 @@ require('../Publish/dbafunktio.php');
 
 function registerUser($uname, $pw) {
 
-    $db = SqliteConnection('../Publish/dbafunktio.php');
+    $db = SqliteConnection('../mydatabase.db');
     $pw = password_hash($pw, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO usertable (username, passwd) VALUES (?,?)";
@@ -23,7 +23,7 @@ function registerUser($uname, $pw) {
 
 function checkUser($uname, $pw) {
 
-    $db = SqliteConnection('../Publish/dbafunktio.php');
+    $db = SqliteConnection('../mydatabase.db');
 
     $sql = "SELECT passwd FROM usertable WHERE username=?";
     $statement = $db->prepare($sql);
@@ -45,7 +45,7 @@ function checkUser($uname, $pw) {
 
  function getUserMessages($uname) {
 
-    $db = $db = SqliteConnection('../Publish/dbafunktio.php');
+    $db = $db = SqliteConnection('../mydatabase.db');
 
     $sql = "SELECT msg FROM messagetable WHERE username=?";
     $statement = $db->prepare($sql);
