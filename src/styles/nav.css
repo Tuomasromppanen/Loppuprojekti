@@ -1,0 +1,147 @@
+.navbar {
+    background-color: #102E62;
+    padding-left: 8px;
+    padding-right: 8px;
+    height: 60px;
+}
+
+.nav-item:not(.navbar-nav:first-child, .navbar-nav:last-child) {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+}
+
+#logo {
+    width: 300px;
+}
+
+
+#loginSignBtn {
+    border: none;
+    background-color: transparent;
+}
+
+#shoppincartBtn {
+    border: none;
+    background-color: transparent;
+}
+
+#loginSignIcon {
+    color: white;
+    width: 25px;
+    height: 30px;
+}
+
+#shoppingcartIcon {
+    color: white;
+    width: 25px;
+    height: 30px;
+}
+
+#hamburgerIcon {
+    color: white;
+    width: 25px;
+    height: 30px;
+}
+
+#navbarSupportedContent {
+    background-color: #102E62;
+}
+
+.dropdown-menu {
+    padding: 15px;
+    background-color: #102E62;
+    width: 180px;
+    list-style: none;
+    color: white;
+    border: none;
+}
+
+.dropdown-item {
+    color: white;
+}
+
+.nav-link:focus,
+.nav-link:hover,
+.dropdown-item:focus,
+.dropdown-item:hover,
+.dropdown-item:active {
+    color: #F8A700;
+    background-color: #102E62;
+}
+
+
+.dropdown-toggle::after {
+    content: none;
+}
+
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    color: #314c77;
+}
+
+@media only screen and (max-width: 1085px) {
+    .nav-link {
+        font-size: 0.7em;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .navbar {
+        padding: 0;
+    }
+
+    .navbar-nav {
+        align-items: start;
+    }
+
+    #logo {
+        padding-left: 4px;
+        width: 130px;
+        height: 60px;
+        order: 1;
+    }
+
+    #navbarSupportedContent {
+        order: 4;
+    }
+
+    .searchContainer {
+        order: 2;
+        margin-left: auto;
+    }
+
+    .buttonContainer {
+        order: 3;
+        padding-right: 4px;
+    }
+
+    .dropdown-menu {
+        padding: 5px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+
+    .searchContainer {
+        padding-bottom: 5px;
+        background-color: #102E62;
+        margin-left: 0;
+        order: 3;
+        width: 100%;
+    }
+
+    .buttonContainer {
+        order: 2;
+        padding-right: 4px;
+    }
+}

@@ -1,0 +1,37 @@
+.productName {
+    color: #f8A700;
+    font-size: 0.9em;
+}
+
+.productPrice {
+    color: #dbdbdb;
+    font-size: 1em;
+}
+
+.productImage {
+    width: 110px;
+    height: 110px;
+}
+
+.deleteProductBtn {
+    width: 40px;
+    height: fit-content;
+    background-color: transparent;
+    border: none;
+}
+
+.deleteProduct {
+    padding: 0;
+    color: white;
+    width: 25px;
+    height: 25px;
+}
+
+.productInfoText {
+    color:#dbdbdb;
+    margin-bottom: 1px;
+    font-size: 0.6em;
+}
+.productInfoContainer {
+    width: 150x;
+}

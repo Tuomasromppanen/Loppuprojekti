@@ -1,0 +1,148 @@
+#Basketball > div:nth-child(1) img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+#Basketball > div:nth-child(2) {
+    height: 40px;
+    background-color:  #F8A700;
+}
+
+#Basketball > div:nth-child(2) p:first-child {
+    float: left;
+    padding-left: 200px;
+    padding-top: 6px;
+}
+
+#Basketball > div:nth-child(2) p:last-child {
+    float: right;
+    padding-right: 200px;
+    padding-top: 6px;
+}
+
+#Basketball a {
+    text-decoration: none;
+    color: black;
+}
+
+@media only screen and (max-width: 768px), (max-width: 800px) {
+    #Basketball > div:nth-child(2) p:first-child {
+        padding-left: 100px;
+    }
+    
+    #Basketball > div:nth-child(2) p:last-child {
+        padding-right: 100px;
+    }
+}
+
+@media only screen and (max-width: 425px), (max-width: 480px), (max-width: 482px), (max-width: 582px)  {
+    #Basketball > div:nth-child(2) p:first-child {
+        padding-left: 30px;
+        font-size: 14px;
+        padding-top: 8px;
+    }
+    
+    #Basketball > div:nth-child(2) p:last-child {
+        padding-right: 30px;
+        font-size: 14px;
+        padding-top: 8px;
+    }
+}
+
+@media only screen and (max-width: 375px), (max-width: 390px), (max-width: 392px) {
+    #Basketball > div:nth-child(2) p:first-child {
+        padding-left: 30px;
+        font-size: 12px;
+        padding-top: 10px;
+    }
+    
+    #Basketball > div:nth-child(2) p:last-child {
+        padding-right: 30px;
+        font-size: 12px;
+        padding-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    #Basketball > div:nth-child(2) p:first-child {
+        display: none;
+    }
+    
+    #Basketball > div:nth-child(2) p:last-child {
+        display: none;
+    }
+}
+
+#Basketball > div:nth-child(3) {
+    height: 80px;
+    background-color: #102E62;
+    color: white;
+}
+
+#Basketball > div:nth-child(3) h1:first-child {
+    text-align: center;
+    padding-top: 16px;
+}
+
+/* .container [class*="col-"] {
+    border: 1px solid black;
+}  */
+
+.container {
+    margin-top: 30px;
+}
+
+.container > div:nth-child(1) img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.container > div:nth-child(1) h4 {
+    padding-top: 20px;
+}
+
+.container > .row:nth-child(2) {
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+
+.container > div:nth-child(2) img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.container > div:nth-child(2) h4 {
+    padding-top: 20px;
+}
+
+
+.container.Basketball > div:nth-child(1) span {
+    height: 15px;
+    width: 15px;
+    background-color: black;
+    border-radius: 50%;
+    position: relative;
+    bottom: 10px;
+    display: inline-block
+}
+
+.container.Basketball > div:nth-child(1) div:nth-child(1) span {
+    background-color: orange;
+}
+
+.container.Basketball > div:nth-child(1) div:nth-child(3) span {
+    background-color: grey;
+}
+
+.container.Basketball > div:nth-child(2) span {
+    height: 15px;
+    width: 15px;
+    background-color: black;
+    border-radius: 50%;
+    position: relative;
+    bottom: 10px;
+    display: inline-block
+} 

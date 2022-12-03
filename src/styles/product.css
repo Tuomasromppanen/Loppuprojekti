@@ -1,0 +1,208 @@
+#product > div:nth-child(1) img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+#product > div:nth-child(2) {
+    height: 40px;
+    background-color:  #F8A700;
+}
+
+#product > div:nth-child(2) p:first-child {
+    float: left;
+    padding-left: 200px;
+    padding-top: 6px;
+}
+
+#product > div:nth-child(2) p:last-child {
+    float: right;
+    padding-right: 200px;
+    padding-top: 6px;
+}
+
+#product a {
+    text-decoration: none;
+    color: black;
+}
+
+@media only screen and (max-width: 768px), (max-width: 800px) {
+    #product > div:nth-child(2) p:first-child {
+        padding-left: 100px;
+    }
+    
+    #product > div:nth-child(2) p:last-child {
+        padding-right: 100px;
+    }
+}
+
+@media only screen and (max-width: 425px), (max-width: 480px), (max-width: 482px), (max-width: 582px)  {
+    #product > div:nth-child(2) p:first-child {
+        padding-left: 30px;
+        font-size: 14px;
+        padding-top: 8px;
+    }
+    
+    #product > div:nth-child(2) p:last-child {
+        padding-right: 30px;
+        font-size: 14px;
+        padding-top: 8px;
+    }
+}
+
+@media only screen and (max-width: 375px), (max-width: 390px), (max-width: 392px) {
+    #product > div:nth-child(2) p:first-child {
+        padding-left: 30px;
+        font-size: 12px;
+        padding-top: 10px;
+    }
+    
+    #product > div:nth-child(2) p:last-child {
+        padding-right: 30px;
+        font-size: 12px;
+        padding-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    #product > div:nth-child(2) p:first-child {
+        display: none;
+    }
+    
+    #product > div:nth-child(2) p:last-child {
+        display: none;
+    }
+}
+
+#product > div:nth-child(3) {
+    height: 80px;
+    background-color: #102E62;
+    color: white;
+}
+
+#product > div:nth-child(3) h1:first-child {
+    text-align: center;
+    padding-top: 16px;
+}
+
+
+.container {
+    margin-top: 30px;
+}
+
+.container > div:nth-child(1) img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+@media only screen and (max-width: 425px), (max-width: 574px)  {
+    .colorbox {
+        height: 320px;
+    }
+    .container > div:nth-child(2) div:nth-child(2) {
+        display: none;
+    }
+}
+
+.colorbox {
+    background-color: #fafafa;
+    border-left: 10px solid white;
+    border-right: 10px solid white;
+
+}
+
+.container > div:nth-child(1) h4 {
+    padding-top: 20px;
+}
+
+.container > .row:nth-child(2) {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.container > div:nth-child(2) img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.container > div:nth-child(2) h4 {
+    padding-top: 20px;
+}
+
+.container > div:nth-child(2) div:nth-child(1) form {
+    position: relative;
+    top: 10%;
+    left: 10%;
+}
+
+.container > div:nth-child(2) div:nth-child(1) h1 {
+    font-size: 40px;
+}
+
+@media only screen and (max-width: 425px), (max-width: 768px), (max-width: 990px) {
+    .container > div:nth-child(2) div:nth-child(1) h1{
+        font-size: 20px;
+        margin-bottom: 0px;
+    }
+
+    .container > div:nth-child(2) div:nth-child(1) form h4 {
+        font-size: 14px;
+        padding-top: 10px;
+      }
+
+}
+
+.header{
+    font-size: 30px;
+    color: black;
+}
+
+.container > div:nth-child(2) div:nth-child(1) button[type="submit"] {
+    display: block;
+    background-color: #F8A700;
+    border: none;
+    padding: 6px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 140px;
+}
+
+@media only screen and (max-width: 425px), (max-width: 766px) {
+    .container > div:nth-child(2) div:nth-child(1) button[type="submit"] {
+        margin-top: 10px;
+    }
+
+}
+
+.container > div:nth-child(2) div:nth-child(1) select {
+    width: 140px;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.container > div:nth-child(2) div:nth-child(1) option {
+    background-color: #fafafa;
+}
+
+.line.col-12  {
+    height: 4px;
+    background-color: #102e6215;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-left: 10px solid white;
+    border-right: 10px solid white;
+}
+
+
+
+
+
+
+
+
+
+
+
+

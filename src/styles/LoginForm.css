@@ -1,0 +1,85 @@
+.object {
+    padding: 10px;
+    padding-left: 30px;
+    background-color: #102E62;
+    width: 350px;
+    height: 330px;
+    position: absolute;
+    top: 46px;
+    right: 0px;
+    float: right;
+    display: none;
+}
+
+.form {
+    padding: 8px;
+    padding-top: 20px;
+}
+
+.form-header h4 {
+    color: #dbdbdb;
+    font-size: 30px;
+    margin-bottom: 2px;
+}
+
+.form-logIn label {
+    color: #dbdbdb;
+    margin-top: 6px;
+}
+
+.form-logIn input[type="email"], input[type="password"] {
+    color: #dbdbdb;
+    width: 96%;
+    margin-top: 6px;
+    background-color: #314c77;
+    border: none;
+    padding: 3px;
+}
+
+form a {
+    text-decoration: none;
+    color: #dbdbdb;
+    font-size: 14px;
+}
+
+form a:hover {
+    color: #F8A700;
+}
+
+.form-logIn button {
+    height: 30px;
+    width: 96%;
+    margin-top: 10px;
+    background-color:  #F8A700;
+    border: none;
+    color:#102E62;
+    font-size: 12px;
+    margin-right: 30px;
+}
+
+.form-register button {
+    height: 30px;
+    width: 96%;
+    margin-top: 10px;
+    background-color:  #F8A700;
+    border: none;
+    color:#102E62;
+    font-size: 12px;
+    margin-right: 30px;
+}
+
+
+@media only screen and (min-width: 992px) {
+    .loginFormContainer:hover .object {
+        display: block !important;
+    }
+    .loginFormContainer:hover #loginSignIcon {
+        color: #F8A700 !important;
+    }
+}
+@media only screen and (max-width: 375px), (max-width: 425px) {
+    .object {
+      width: 100%;
+      z-index: 2;
+    }
+  }

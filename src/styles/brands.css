@@ -1,0 +1,106 @@
+#brand > div:nth-child(1) img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+#brand > div:nth-child(2) {
+    height: 40px;
+    background-color:  #F8A700;
+}
+
+#brand > div:nth-child(2) p:first-child {
+    float: left;
+    padding-left: 200px;
+    padding-top: 6px;
+}
+
+#brand > div:nth-child(2) p:last-child {
+    float: right;
+    padding-right: 200px;
+    padding-top: 6px;
+}
+
+#brand a {
+    text-decoration: none;
+    color: black;
+}
+
+@media only screen and (max-width: 768px), (max-width: 800px) {
+    #brand > div:nth-child(2) p:first-child {
+        padding-left: 100px;
+    }
+    
+    #brand > div:nth-child(2) p:last-child {
+        padding-right: 100px;
+    }
+}
+
+@media only screen and (max-width: 425px), (max-width: 480px), (max-width: 482px), (max-width: 582px)  {
+    #brand > div:nth-child(2) p:first-child {
+        padding-left: 30px;
+        font-size: 14px;
+        padding-top: 8px;
+    }
+    
+    #brand > div:nth-child(2) p:last-child {
+        padding-right: 30px;
+        font-size: 14px;
+        padding-top: 8px;
+    }
+}
+
+@media only screen and (max-width: 375px), (max-width: 390px), (max-width: 392px) {
+    #brand > div:nth-child(2) p:first-child {
+        padding-left: 30px;
+        font-size: 12px;
+        padding-top: 10px;
+    }
+    
+    #brand > div:nth-child(2) p:last-child {
+        padding-right: 30px;
+        font-size: 12px;
+        padding-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    #brand > div:nth-child(2) p:first-child {
+        display: none;
+    }
+    
+    #brand > div:nth-child(2) p:last-child {
+        display: none;
+    }
+}
+
+#brand > div:nth-child(3) {
+    height: 80px;
+    background-color: #102E62;
+    color: white;
+}
+
+#brand > div:nth-child(3) h1:first-child {
+    text-align: center;
+    padding-top: 16px;
+}
+
+
+.logos {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 200px;
+    height: 150px;
+}
+
+.brandRow1 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.brandRow3 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+

@@ -1,0 +1,52 @@
+.loadingBox0 {
+    width: 290px;
+    height: 30px;
+    margin-bottom: 10px;
+    background-color: #314c77;
+    animation: animation0 2.4s cubic-bezier(0.5, 0, 1, 0.5) infinite;
+}
+
+.loadingBox1 {
+    width: 290px;
+    height: 30px;
+    background-color: #314c77;
+    animation: animation1 2.4s cubic-bezier(0.5, 0, 1, 0.5) infinite;
+}
+
+
+@keyframes animation0 {
+
+    0% {
+        background-color: #314c77;
+    }
+    30% {
+        background-color:#F8A700;;
+    }
+
+    68%,
+    72% {
+        background-color: #314c77;
+    }
+    100% {
+        background-color:#F8A700;;
+    }
+  }
+
+  @keyframes animation1 {
+
+    0% {
+        background-color: #F8A700;
+    }
+    30% {
+        background-color:#314c77;
+    }
+
+    68%,
+    72% {
+        background-color: #F8A700;
+    }
+    100% {
+        background-color:#314c77;
+    }
+  }
+  

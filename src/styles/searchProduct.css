@@ -1,0 +1,21 @@
+.productName {
+    color: #f8A700;
+    font-size: 0.9em;
+}
+
+.productPrice {
+    color: #dbdbdb;
+    font-size: 1em;
+}
+
+.productImage {
+    width: 110px;
+    height: 110px;
+}
+
+.productLinks {
+    background-color: #f8A700;
+    color: #102E62;
+    border: 1px solid #102E62;
+    width: 80px;
+}

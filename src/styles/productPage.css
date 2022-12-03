@@ -1,0 +1,116 @@
+html,body
+{
+    overflow-x: hidden; 
+}
+
+.ProductImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:70%;
+    margin-top: 3em;
+    margin-bottom: 3em; 
+    height: auto; 
+}
+
+.ProductImageMain {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    margin-bottom: 3em; 
+    height: auto; 
+}
+
+.addText {
+    font-size: 18px;
+    background-color: #F8A700;
+    padding: 5px;
+    margin-bottom: 0px;
+}
+
+.Heading {
+    background-color: #102E62;
+    color: white;
+    font-size: 26px;
+    padding: 1em;
+    font-weight: bolder;
+}
+
+.productInformationHeadingLeft {
+    background-color: #102E62;
+    color: white;
+    font-size: large;
+    margin-bottom: 0%;
+    padding-left: 33em;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.button {
+    background-color: #F8A700;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-left: 3px;
+  }
+
+.selectSize {
+    background-color: white;
+    font-weight: bold;
+    padding: 10px 40px;
+    margin-bottom: 20px;
+    margin-left: 3px;
+}
+
+.color {
+    margin-left: 3px;
+}
+
+.productHeading {
+    margin-top:2em;
+}
+
+.productInformationH1 {
+    font-size: 23px;
+    background-color: #102E62;
+    color: white;
+    text-align: right;
+    padding-right: 10em;
+    padding-top: 1.5em;
+    margin-bottom: 0;
+}
+
+.productInformationH2 {
+    font-size: 23px;
+    background-color: #102E62;
+    color: white;
+    text-align: left;
+    padding-left: 9.6em;
+    padding-top: 1.5em;
+    margin-bottom: 0;
+}
+
+.productDescription1 {
+    font-size: 15px;
+    background-color: #102E62;
+    color: white;
+    text-align: left;
+    padding-left: 38.5em;
+    padding-top: 1.5em;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,70 @@
+.searchBtns {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: 10px;
+    top: -2px;
+}
+
+.searchInput {
+    background-color: #314c77;
+    border: none;
+}
+
+.searchResult {
+    padding: 40px;
+    background-color: #102E62;
+    width: 350px;
+    height: 330px;
+    position: absolute;
+    top: 46px;
+    right: 0px;
+
+    scrollbar-color: #f8A700 #102e62;
+    overflow: auto;
+}
+
+.searchResult::-webkit-scrollbar {
+    background: #102e62;
+    width: 3px;
+}
+
+.searchResult::-webkit-scrollbar-thumb {
+    background: #f8A700;
+}
+
+.searchProductName {
+    color: #f8A700;
+    font-size: 20px;
+}
+
+.resultHeader {
+    color: #dbdbdb;
+    font-size: 25px;
+}
+
+
+.resultCounter {
+    color:#dbdbdb;
+}
+.categoryLinks {
+    color:#f8A700;
+    display: block;
+}
+
+@media only screen and (max-width: 991px) {
+    .searchInput {
+        width: 120px;
+        min-width: 100px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .searchInput {
+        width: 100%;
+    }
+    .searchResult {
+        margin-top: 45px;
+        width: 100%;
+    }
+}
