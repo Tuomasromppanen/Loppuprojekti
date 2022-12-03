@@ -1,6 +1,6 @@
 <?php
 
-require('../PDO-perusteet/PDO-kyselyt/dbafunktio.php');
+require('../Publish/dbafunktio.php');
 
 /**
  * Inserts a new user in the database
@@ -8,7 +8,7 @@ require('../PDO-perusteet/PDO-kyselyt/dbafunktio.php');
 
 function registerUser($uname, $pw) {
 
-    $db = SqliteConnection('../PDO-perusteet/PDO-kyselyt/mydatabase.db');
+    $db = SqliteConnection('../Publish/dbafunktio.php');
     $pw = password_hash($pw, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO usertable (username, passwd) VALUES (?,?)";
@@ -23,7 +23,7 @@ function registerUser($uname, $pw) {
 
 function checkUser($uname, $pw) {
 
-    $db = SqliteConnection('../PDO-perusteet/PDO-kyselyt/mydatabase.db');
+    $db = SqliteConnection('../Publish/dbafunktio.php');
 
     $sql = "SELECT passwd FROM usertable WHERE username=?";
     $statement = $db->prepare($sql);
@@ -45,7 +45,7 @@ function checkUser($uname, $pw) {
 
  function getUserMessages($uname) {
 
-    $db = $db = SqliteConnection('../PDO-perusteet/PDO-kyselyt/mydatabase.db');
+    $db = $db = SqliteConnection('../Publish/dbafunktio.php');
 
     $sql = "SELECT msg FROM messagetable WHERE username=?";
     $statement = $db->prepare($sql);
