@@ -23,7 +23,7 @@ const Nav = () => {
                 Miehet
               </Link>
               <div className="dropdown-menu" aria-labelledby="navbarDropdownMen">
-                <Link to="/miestenkävelykengat" className="dropdown-item">Kävelykengät</Link>
+                <Link to="/miestenkavelykengat" className="dropdown-item">Kävelykengät</Link>
                 <Link to="/miestenkoripallokengat" className="dropdown-item">Koripallokengät</Link>
                 <Link to="/miestenskeittikengat" className="dropdown-item">Skeittikengät</Link>
               </div>
@@ -34,7 +34,7 @@ const Nav = () => {
                 Naiset
               </Link>
               <div className="dropdown-menu" aria-labelledby="navbarDropdownWomen">
-                <Link to="/naistenkävelykengat" className="dropdown-item">Kävelykengät</Link>
+                <Link to="/naistenkavelykengat" className="dropdown-item">Kävelykengät</Link>
                 <Link to="/naistenkoripallokengat" className="dropdown-item">Koripallokengät</Link>
                 <Link to="/naistenskeittikengat" className="dropdown-item">Skeittikengät</Link>
               </div>

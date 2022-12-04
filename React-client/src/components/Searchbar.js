@@ -22,7 +22,6 @@ const Searchbar = () => {
   // console.log(keyword);
 
   const [input, SetInput] = useState("");
-  console.log(input);
 
   return (
     <div className="searchContainer">
