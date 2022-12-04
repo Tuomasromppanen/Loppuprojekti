@@ -1,25 +1,7 @@
 import '../styles/searchbar.css'
 import { useEffect, useState } from "react"
-import { Link } from 'react-router-dom'
-import { useParams, useNavigate } from 'react-router-dom'
-
-import axios from "axios"
   
 const Searchbar = () => {
-
-  // const [keyword, setKeyword] = useState("");
-  // const navigate = useNavigate();
-
-  // const searchHandler = (e) => {
-
-  //   if (keyword.trim()) {
-  //     navigate(`/WalkShoesMen/${keyword}`);
-  //   } else {
-  //     navigate("/");
-  //   }
-  // };
-
-  // console.log(keyword);
 
   const [input, SetInput] = useState("");
 

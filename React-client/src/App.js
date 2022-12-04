@@ -44,22 +44,7 @@ import WalkingW from "./Kuvat/Sivustokuvat/walkingWomen.jpg"
 import SkateboardM from "./Kuvat/Sivustokuvat/Skatebackground.jpg"
 import SkateboardW from "./Kuvat/Sivustokuvat/skateboardingWomen.jpg"
 
-// const URL = 'http://localhost:3000/Publish/rest_product.php'
-
 const App = () => {
-
-  // const [header, setHeader] = useState([]);
-
-  // useEffect(() => {
-  //   axios.post(URL)
-  //   .then((response) => {
-  //     setHeader(response.data.tuotenimi)
-  //     console.log(response)
-  //   }).catch(error => {
-  //     alert(error)
-  //   })
-  // }, [])
-
 
   return (
    <>
