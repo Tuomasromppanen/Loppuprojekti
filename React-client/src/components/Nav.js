@@ -6,8 +6,7 @@ import Shoppingcart from './Shoppingcart'
 import Searchbar from './Searchbar.js'
 import LoginForm from './LoginForm'
 
-/*
-*/
+
 const Nav = () => {
   return (
     <nav className="navbar navbar-expand-lg">
@@ -24,9 +23,9 @@ const Nav = () => {
                 Miehet
               </Link>
               <div className="dropdown-menu" aria-labelledby="navbarDropdownMen">
-                <Link to="/WalkshoesMen" className="dropdown-item">Kävelykengät</Link>
-                <Link to="/BasketballMen" className="dropdown-item">Koripallokengät</Link>
-                <Link to="/SkateboardMen" className="dropdown-item">Skeittikengät</Link>
+                <Link to="/miestenkävelykengat" className="dropdown-item">Kävelykengät</Link>
+                <Link to="/miestenkoripallokengat" className="dropdown-item">Koripallokengät</Link>
+                <Link to="/miestenskeittikengat" className="dropdown-item">Skeittikengät</Link>
               </div>
             </li>
 
@@ -35,14 +34,14 @@ const Nav = () => {
                 Naiset
               </Link>
               <div className="dropdown-menu" aria-labelledby="navbarDropdownWomen">
-                <Link to="/WalkshoesWomen" className="dropdown-item">Kävelykengät</Link>
-                <Link to="/BasketballWomen" className="dropdown-item">Koripallokengät</Link>
-                <Link to="/SkateboardWomen" className="dropdown-item">Skeittikengät</Link>
+                <Link to="/naistenkävelykengat" className="dropdown-item">Kävelykengät</Link>
+                <Link to="/naistenkoripallokengat" className="dropdown-item">Koripallokengät</Link>
+                <Link to="/naistenskeittikengat" className="dropdown-item">Skeittikengät</Link>
               </div>
             </li>
 
             <li className='nav-item'>
-              <Link className='nav-link' to="/Brands">Brandit</Link>
+              <Link className='nav-link' to="/brandisivusto">Brandit</Link>
             </li>
             <li className="nav-item">
               <Link className='nav-link' to="#">Tietoa meistä</Link>

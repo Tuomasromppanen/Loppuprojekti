@@ -1,11 +1,33 @@
 import '../styles/searchbar.css'
+import { useEffect, useState } from "react"
+import { Link } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
+import axios from "axios"
+  
 const Searchbar = () => {
+
+  // const [keyword, setKeyword] = useState("");
+  // const navigate = useNavigate();
+
+  // const searchHandler = (e) => {
+
+  //   if (keyword.trim()) {
+  //     navigate(`/WalkShoesMen/${keyword}`);
+  //   } else {
+  //     navigate("/");
+  //   }
+  // };
+
+  // console.log(keyword);
+
+  const [input, SetInput] = useState("");
+  console.log(input);
 
   return (
     <div className="searchContainer">
       <div className="inputForm d-flex position-relative" role="search">
-        <input className="searchInput mx-2" type="text" placeholder="Haku" aria-label="Search">
+        <input value={input} className="searchInput mx-2" type="text" placeholder="Haku" aria-label="Search" onChange={(e) => SetInput(e.target.value)}>
         </input>
         
           <button className="searchBtns">

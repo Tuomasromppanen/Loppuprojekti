@@ -65,7 +65,7 @@ const jordan1mid = (props) => {
                         <div className="col-xs-12 col-sm-6 col-md-6 col-xl-6 d-flex colorbox">
 
                         <form>
-                        <h1>{props.name}</h1>
+                        <h1>{props.name} {props.price}</h1>
                         <h4>Valitse väri</h4>
                         <select>
                             {props.color.map((color) => <option>{color}</option>)}
