@@ -19,19 +19,19 @@ const Brands = () => {
 
             <div className="container-fluid brandContainer">
                 <div className="mx-5 row brandRow1 wrap">
-                    <div className="col-lg-4 col-md-4 d-flex justify-content-center"><img className='logos' src={require('../Kuvat/Logot/Adidas_logo_white.png')}></img></div>
-                    <div className="col-lg-4 col-md-4 d-flex justify-content-center"><img className='logos' src={require('../Kuvat/Logot/nike_PNG4.png')}></img></div>
-                    <div className="col-lg-4 col-md-4 d-flex justify-content-center"><img className='logos' src={require('../Kuvat/Logot/Converse_logo.png')}></img></div>
+                    <div className="col-lg-4 col-md-4 d-flex justify-content-center"><img className='logos' src={require('../Kuvat/Logot/Adidas_logo_white.png')} alt=""></img></div>
+                    <div className="col-lg-4 col-md-4 d-flex justify-content-center"><img className='logos' src={require('../Kuvat/Logot/nike_PNG4.png')} alt=""></img></div>
+                    <div className="col-lg-4 col-md-4 d-flex justify-content-center"><img className='logos' src={require('../Kuvat/Logot/Converse_logo.png')} alt=""></img></div>
                 </div>
 
                 <div className="mx-5 row brandRow2">
-                    <div className="col-lg-4 col-md-4 d-flex justify-content-center"><img className='logos' src={require('../Kuvat/Logot/Vans_logo.png')}></img></div>
-                    <div className="col-lg-4 col-md-4 d-flex justify-content-center"><img className='logos' src={require('../Kuvat/Logot/Reebok_logo.png')}></img></div>
-                    <div className="col-lg-4 col-md-4 d-flex justify-content-center"><img className='logos' src={require('../Kuvat/Logot/Jordan_logo.png')}></img></div>
+                    <div className="col-lg-4 col-md-4 d-flex justify-content-center"><img className='logos' src={require('../Kuvat/Logot/Vans_logo.png')} alt=""></img></div>
+                    <div className="col-lg-4 col-md-4 d-flex justify-content-center"><img className='logos' src={require('../Kuvat/Logot/Reebok_logo.png')} alt=""></img></div>
+                    <div className="col-lg-4 col-md-4 d-flex justify-content-center"><img className='logos' src={require('../Kuvat/Logot/Jordan_logo.png')} alt=""></img></div>
                 </div>
 
                 <div className="mx-5 row brandRow3">
-                    <div className="col-lg-4 d-flex justify-content-center"><img className='logos' src={require('../Kuvat/Logot/Yeezy_Logo.png')}></img></div>
+                    <div className="col-lg-4 d-flex justify-content-center"><img className='logos' src={require('../Kuvat/Logot/Yeezy_Logo.png')} alt=""></img></div>
                 </div>
             </div>
         </div>

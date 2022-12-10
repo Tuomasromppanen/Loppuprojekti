@@ -1,7 +1,41 @@
 import '../styles/WalkShoes.css'
 import { Link } from 'react-router-dom'
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import axios from "axios"
+
 
 function WalkShoes(props) {
+
+    const [airforce, SetAirforce] = useState([])
+    const [airforce720, SetAirforce720] = useState([])
+    const [adidasy3, SetAdidasy3] = useState([])
+    const [nikeairforce97, SetNikeAirforce97] = useState([])
+    const [yeezy, SetYeezy] = useState([])
+    const [adidasgazelle, SetAdidasgazelle] = useState([])
+
+
+    let params = useParams();
+
+    useEffect(() => {
+        console.log('http://localhost:3000/Publish/product.php/' + params.categorywalktrnro)
+        axios.get('http://localhost:3000/Publish/product.php/' + params.categorywalktrnro)
+        .then((response) => {
+          const json = response.data;
+          console.log(json);
+          SetAirforce(json.tuotteet[0]);
+          SetAirforce720(json.tuotteet[1]);
+          SetAdidasy3(json.tuotteet[2]);
+          SetNikeAirforce97(json.tuotteet[3]);
+          SetYeezy(json.tuotteet[4]);
+          SetAdidasgazelle(json.tuotteet[5]);
+        }).catch (error => {
+          alert(error.response === undefined ? error:error.response.data.error);
+        })
+    
+      }, [params])
+      
+    
     return (
         <div id="walkshoes">
 
@@ -9,43 +43,38 @@ function WalkShoes(props) {
             <img src={props.picture} alt=""/>
             </div>
 
-            <div className="col-12">
-                <p>30 päivän palautusoikeus</p>
-                <p>Ilmainen toimitus ja palautus</p>
-            </div>
-
-            <div className="col-12">
-                <h1>{props.categoryHeader}</h1>
-            </div>
-
             <div className="container walk">
                 <div className="row">
 
+                    <div className="col-12 text-color">
+                        <h5>Kävelykengät</h5>
+                        <div className="col-12 border cr-color"></div>
+                    </div>
+
+
+
+                        
                         <div className="col-xs-12 col-md-4 col-xl-4">
                         <Link to="nikeairforce">
-                        <img src={require('../Kuvat/Tuotekuvat/Paivitetyt_Tuotekuvat/Nike_AirForce_1/Nike_AirForce_1_1.png')} alt=""/>
-                        <h4>Nike Airforce</h4>
-                        <p>100,00€</p>
-                        <span></span>
+                        <img src={'http://localhost:3000/Publish/images/' + airforce.kuva} alt="Loading..."/>
+                        <h4>{airforce.tuotenimi}</h4>
+                        <p>{airforce.hinta}</p>
                         </Link>                      
                         </div>
-
+                    
                         <div className="col-xs-12 col-md-4 col-xl-4">
                         <Link to="nikeairforce720">
-                        <img src={require('../Kuvat/Tuotekuvat/Paivitetyt_Tuotekuvat/Nike_AirMax_720/Nike_AirMax_720_1.png')} alt=""/>
-                        <h4>Nike Airforce 720</h4>
-                        <p>120,00€</p>
-                        <span></span>
-                        <span></span>
+                        <img src={'http://localhost:3000/Publish/images/' + airforce720.kuva} alt=""/>
+                        <h4>{airforce720.tuotenimi}</h4>
+                        <p>{airforce720.hinta}</p>
                         </Link> 
                         </div>
 
                         <div className="col-xs-12 col-md-4 col-xl-4">
                         <Link to="adidasy3">
-                        <img src={require('../Kuvat/Tuotekuvat/Paivitetyt_Tuotekuvat/Adidas_Y3/Adidas_Y3_1.png')} alt=""/>
-                        <h4>Adidas Y3</h4>
-                        <p>200,00€</p>
-                        <span></span>
+                        <img src={'http://localhost:3000/Publish/images/' + adidasy3.kuva} alt=""/>
+                        <h4>{adidasy3.tuotenimi}</h4>
+                        <p>{adidasy3.hinta}</p>
                         </Link> 
                         </div>
                         
@@ -54,28 +83,25 @@ function WalkShoes(props) {
 
                         <div className="col-xs-12 col-md-4 col-xl-4">
                         <Link to="nikeairforce97">
-                        <img src={require('../Kuvat/Tuotekuvat/Paivitetyt_Tuotekuvat/Nike_AirMax_97/Nike_AirMax_97_1.png')} alt=""/>
-                        <h4>Nike Airforce 97</h4>
-                        <p>90,00€</p>
-                        <span></span>
+                        <img src={'http://localhost:3000/Publish/images/' + nikeairforce97.kuva} alt=""/>
+                        <h4>{nikeairforce97.tuotenimi}</h4>
+                        <p>{nikeairforce97.hinta}</p>
                         </Link> 
                         </div>
 
                         <div className="col-xs-12 col-md-4 col-xl-4">
                         <Link to="yeezy">
-                        <img src={require('../Kuvat/Tuotekuvat/Paivitetyt_Tuotekuvat/Yeezy/Yeezy_1.png')} alt=""/>
-                        <h4>Yeezy</h4>
-                        <p>200,00€</p>
-                        <span></span>
+                        <img src={'http://localhost:3000/Publish/images/' + yeezy.kuva} alt=""/>
+                        <h4>{yeezy.tuotenimi}</h4>
+                        <p>{yeezy.hinta}</p>
                         </Link> 
                         </div>
 
                         <div className="col-xs-12 col-md-4 col-xl-4">
                         <Link to="adidasgazelle">
-                        <img src={require('../Kuvat/Tuotekuvat/Paivitetyt_Tuotekuvat/Adidas_Gazelle/Adidas_Gazelle_1.png')} alt=""/>
-                        <h4>Adidas Gazelle</h4>
-                        <p>80,00€</p>
-                        <span></span>
+                        <img src={'http://localhost:3000/Publish/images/' + adidasgazelle.kuva} alt=""/>
+                        <h4>{adidasgazelle.tuotenimi}</h4>
+                        <p>{adidasgazelle.hinta}</p>
                         </Link> 
                         </div>
 
@@ -87,6 +113,19 @@ function WalkShoes(props) {
            
 
         </div>
+        // <div>
+        //     <h3>products {category}</h3>
+          
+        //         <div >
+        //             {products}
+        //             </div>
+           
+              
+          
+
+          
+        // </div>
+
     )
 }
 

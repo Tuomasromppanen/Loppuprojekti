@@ -1,7 +1,35 @@
 import '../styles/Basketball.css'
 import { Link } from 'react-router-dom'
+import { useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
+import axios from "axios"
 
 const Basketball = (props) => {
+
+  const [jordan1Low, SetJordan1Low] = useState([])
+  const [jordan1Mid, SetJordan1Mid] = useState([])
+  const [nikekd, SetNikekd] = useState([])
+  const [converse, SetConverse] = useState([])
+  const [reebok, SetReebok] = useState([])
+
+  let params = useParams();
+
+  useEffect(() => {
+      console.log('http://localhost:3000/Publish/product.php/' + params.categorybaskettrnro)
+      axios.get('http://localhost:3000/Publish/product.php/' + params.categorybaskettrnro)
+      .then((response) => {
+        const json = response.data;
+        console.log(json);
+        SetJordan1Low(json.tuotteet[0]);
+        SetJordan1Mid(json.tuotteet[1]);
+        SetNikekd(json.tuotteet[2]);
+        SetConverse(json.tuotteet[3]);
+        SetReebok(json.tuotteet[4]);
+      }).catch (error => {
+        alert(error.response === undefined ? error:error.response.data.error);
+      })
+  
+    }, [params])
 
     return (
         <div id="Basketball">
@@ -9,69 +37,73 @@ const Basketball = (props) => {
                 <img src={props.picture} alt="" />
             </div>
 
-            <div className="col-12">
-                <p>30 päivän palautusoikeus</p>
-                <p>Ilmainen toimitus ja palautus</p>
-            </div>
-
-            <div className="col-12">
-                <h1>{props.categoryHeader}</h1>
-            </div>
-
             <div className="container Basketball">
                 <div className="row">
 
-                    <div className="col-xs-12 col-md-4 col-xl-4">
+                <div className="col-12 text-color">
+                        <h5>Koripallokengät</h5>
+                        <div className="col-12 border cr-color"></div>
+                    </div>
+
+                <div className="col-xs-12 col-md-4 col-xl-4">
                         <Link to="jordan1low">
-                            <img src={require('../Kuvat/Tuotekuvat/Paivitetyt_Tuotekuvat/Jordan_1_Low/Jordan_1_Low_1.jpg')} alt="" />
-                            <h4>Jordan 1 Low</h4>
-                            <p>170,00€</p>
-                            <span></span>
-                        </Link>
-                    </div>
+                        <img src={'http://localhost:3000/Publish/images/' + jordan1Low.kuva} alt="Loading..."/>
+                        <h4>{jordan1Low.tuotenimi}</h4>
+                        <p>{jordan1Low.hinta}</p>
+                        </Link>                      
+                  </div>
 
-                    <div className="col-xs-12 col-md-4 col-xl-4">
+                  <div className="col-xs-12 col-md-4 col-xl-4">
                         <Link to="jordan1mid">
-                            <img src={require('../Kuvat/Tuotekuvat/Paivitetyt_Tuotekuvat/Jordan_1_Mid/Jordan_1_Mid_1.png')} alt="" />
-                            <h4>Jordan 1 Mid</h4>
-                            <p>150,00€</p>
-                            <span></span>
-                        </Link>
-                    </div>
+                        <img src={'http://localhost:3000/Publish/images/' + jordan1Mid.kuva} alt=""/>
+                        <h4>{jordan1Mid.tuotenimi}</h4>
+                        <p>{jordan1Mid.hinta}</p>
+                        </Link> 
+                        </div>
 
-                    <div className="col-xs-12 col-md-4 col-xl-4">
-                        <Link to="nikekd">
-                            <img src={require('../Kuvat/Tuotekuvat/Paivitetyt_Tuotekuvat/Nike_KD/Nike_KD_1.png')} alt="" />
-                            <h4>Nike KD</h4>
-                            <p>70,00€</p>
-                            <span></span>
-                        </Link>
-                    </div>
+                        <div className="col-xs-12 col-md-4 col-xl-4">
+                        <Link to="nikenkd">
+                        <img src={'http://localhost:3000/Publish/images/' + nikekd.kuva} alt=""/>
+                        <h4>{nikekd.tuotenimi}</h4>
+                        <p>{nikekd.hinta}</p>
+                        </Link> 
+                        </div>
 
                 </div>
                 <div className="row">
 
-                    <div className="col-xs-12 col-md-4 col-xl-4">
+                <div className="col-xs-12 col-md-4 col-xl-4">
                         <Link to="converse">
-                            <img src={require('../Kuvat/Tuotekuvat/Paivitetyt_Tuotekuvat/Converse/Converse_1.png')} alt="" />
-                            <h4>Converse</h4>
-                            <p>120,00€</p>
-                            <span></span>
-                        </Link>
-                    </div>
+                        <img src={'http://localhost:3000/Publish/images/' + converse.kuva} alt=""/>
+                        <h4>{converse.tuotenimi}</h4>
+                        <p>{converse.hinta}</p>
+                        </Link> 
+                        </div>
 
-                    <div className="col-xs-12 col-md-4 col-xl-4">
+                        <div className="col-xs-12 col-md-4 col-xl-4">
                         <Link to="reebok">
-                            <img src={require('../Kuvat/Tuotekuvat/Paivitetyt_Tuotekuvat/Reebok/Reebok_1.png')} alt="" />
-                            <h4>Reebok</h4>
-                            <p>90,00€</p>
-                            <span></span>
-                        </Link>
-                    </div>
+                        <img src={'http://localhost:3000/Publish/images/' + reebok.kuva} alt=""/>
+                        <h4>{reebok.tuotenimi}</h4>
+                        <p>{reebok.hinta}</p>
+                        </Link> 
+                        </div>
                 </div>
             </div>
 
         </div>
+
+    //     <div>
+    //     <h3>products {category}</h3>
+     
+    //         <div >
+    //             {products}
+    //             </div>
+     
+          
+      
+
+      
+    // </div>
     )
 }
 

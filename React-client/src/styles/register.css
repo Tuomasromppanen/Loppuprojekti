@@ -1,0 +1,49 @@
+
+.registerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+    background-color: #102E62;
+}
+.logo {
+    width: 100%;
+}
+
+.registerForm {
+    width: 350px;
+}
+.respondMsg {
+    color: #dbdbdb;
+}
+.registerInputs {
+    color: #dbdbdb;
+    height: 30px;
+    width: 100%;
+    border: none;
+    background-color: #314c77;
+}
+
+.inputLabels {
+    color: #dbdbdb;
+}
+.registerButtons {
+    height: 30px;
+    width: 100%;
+    margin-top: 10px;
+    background-color:  #F8A700;
+    border: none;
+    color:#102E62;
+    font-size: 12px;
+    margin-right: 30px;
+}
+
+#frontPageLink {
+    color:#102E62;
+}
+
+@media only screen and (max-width: 415px){
+    .registerForm {
+        width: 100%;
+    }
+}

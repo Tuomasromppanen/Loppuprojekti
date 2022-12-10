@@ -1,5 +1,6 @@
 import '../styles/LoginForm.css'
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function LoginForm() {
 
@@ -38,9 +39,9 @@ function LoginForm() {
                     </form>
 
                     <div className="form-register">
-                        <a href="/#">
-                            <button>Rekistöröidy asiakkaaksi</button>
-                        </a>
+                       <button>
+                            <Link className="registerLink" to="/register">Rekisteröidy asiakkaaksi</Link>
+                        </button>
                     </div>
                 </div>
             </div>

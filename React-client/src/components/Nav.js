@@ -1,13 +1,35 @@
 import '../styles/nav.css'
 import Logo from '../Kuvat/Sivustokuvat/Collect_shoes.png'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 import Shoppingcart from './Shoppingcart'
 import Searchbar from './Searchbar.js'
 import LoginForm from './LoginForm'
 
 
-const Nav = () => {
+const Nav = ({url}) => {
+
+  const [categorywalk, setCategorywalk] = useState([])
+  const [categorybasket, setCategorybasket] = useState([])
+  const [categoryskate, setCategoryskate] = useState([])
+
+  useEffect(() => {
+    console.log(url + '/product_group.php')
+    axios.get(url + '/product_group.php')
+    .then((response) => {
+      const json = response.data;
+      setCategorywalk(json[0]);
+      setCategorybasket(json[1])
+      setCategoryskate(json[2])
+      console.log(json[0]);
+    }).catch (error => {
+      alert(error.response === undefined ? error:error.response.data.error);
+    })
+
+  }, [])
+
+
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid p-0">
@@ -17,27 +39,19 @@ const Nav = () => {
             <li className='nav-item'>
               <Link className='nav-link' to="/">Kotisivu</Link>
             </li>
-
+         
             <li className="nav-item dropdown">
               <Link className="nav-link dropdown-toggle" id="navbarDropdownMen" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Miehet
+                Jalkineet
               </Link>
-              <div className="dropdown-menu" aria-labelledby="navbarDropdownMen">
-                <Link to="/miestenkavelykengat" className="dropdown-item">Kävelykengät</Link>
-                <Link to="/miestenkoripallokengat" className="dropdown-item">Koripallokengät</Link>
-                <Link to="/miestenskeittikengat" className="dropdown-item">Skeittikengät</Link>
-              </div>
-            </li>
-
-            <li className="nav-item dropdown">
-              <Link className="nav-link dropdown-toggle" id="navbarDropdownWomen" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Naiset
-              </Link>
-              <div className="dropdown-menu" aria-labelledby="navbarDropdownWomen">
-                <Link to="/naistenkavelykengat" className="dropdown-item">Kävelykengät</Link>
-                <Link to="/naistenkoripallokengat" className="dropdown-item">Koripallokengät</Link>
-                <Link to="/naistenskeittikengat" className="dropdown-item">Skeittikengät</Link>
-              </div>
+              <ul className="dropdown-menu" aria-labelledby="navbarDropdownMen">
+                <li>
+                <Link to={"/kävelykengät/" + categorywalk.trnro} className="dropdown-item">{categorywalk.trnimi}</Link>
+                <Link to={"/koripallokengät/" + categorybasket.trnro} className="dropdown-item">{categorybasket.trnimi}</Link>
+                <Link to={"/skeittikengät/" + categoryskate.trnro} className="dropdown-item">{categoryskate.trnimi}</Link> 
+                </li>
+         
+              </ul>
             </li>
 
             <li className='nav-item'>

@@ -21,7 +21,24 @@
     font-size: 30px;
     margin-bottom: 2px;
 }
-
+.username {
+    color: #dbdbdb;
+    font-size: 20px;
+    font-weight: bold;
+}
+.loggedInLinks {
+    color: #dbdbdb;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 5px
+}
+.logoutBtn {
+    background-color: #f8A700;
+    color: #102E62;
+    border: 1px solid #102E62;
+    text-align: center;
+    text-decoration: none;
+}
 .form-logIn label {
     color: #dbdbdb;
     margin-top: 6px;
@@ -66,6 +83,24 @@ form a:hover {
     color:#102E62;
     font-size: 12px;
     margin-right: 30px;
+}
+.registerLink {
+    text-decoration: none;
+    color:#102E62;
+}
+.registerLink:hover {
+    color:#102E62;
+}
+
+#loginSignIcon {
+    color: white;
+    width: 25px;
+    height: 30px;
+}
+#loggedIcon {
+    color: white;
+    width: 25px;
+    height: 30px;   
 }
 
 
