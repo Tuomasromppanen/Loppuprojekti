@@ -4,30 +4,30 @@ require('./headers.php');
 session_start();
 require('./db_user_controller.php');
 
-if(isset($_SESSION['username'])) {
+if(isset($_SESSION['sahkoposti'])) {
     http_response_code(200);
-    echo $_SESSION['username'];
+    echo $_SESSION['sahkoposti'];
     return;
 }
 
-if(!isset($_POST['uname']) || !isset($_POST['pw'])) {
+if(!isset($_POST['email']) || !isset($_POST['pw'])) {
     http_response_code(401);
-    echo "User not defined";
+    echo "Sähköpostia ei löydy";
     return;
 }
 
-$uname = $_POST['uname'];
+$email = $_POST['email'];
 $pw = $_POST['pw'];
 
-$verifield_uname = checkUser($uname, $pw);
+$verifield_email = checkUser($email, $pw);
 
-if($verifield_uname) {
-    $_SESSION['username'] = $verifield_uname;
+if($verifield_email) {
+    $_SESSION['sahkoposti'] = $verifield_email;
     http_response_code(200);
-    echo $verifield_uname;
+    echo $verifield_email;
 } else {
     http_response_code(401);
-    echo "Wrong username and password";
+    echo "Väärä sähköposti ja salasana";
 }
 
 ?>

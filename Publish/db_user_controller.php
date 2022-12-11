@@ -6,14 +6,14 @@ require('../Publish/dbafunktio.php');
  * Inserts a new user in the database
  */
 
-function registerUser($uname, $pw) {
+function registerUser($email, $pw) {
 
     $db = SqliteConnection('../mydatabase.db');
     $pw = password_hash($pw, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO usertable (username, passwd) VALUES (?,?)";
+    $sql = "INSERT INTO kayttaja (sahkoposti, salasana) VALUES (?,?)";
     $statement = $db->prepare($sql);
-    $statement->execute(array($uname, $pw));
+    $statement->execute(array($email, $pw));
     
 }   
 
@@ -21,18 +21,18 @@ function registerUser($uname, $pw) {
  * Checks the user credentials and returns the username
  */
 
-function checkUser($uname, $pw) {
+function checkUser($email, $pw) {
 
     $db = SqliteConnection('../mydatabase.db');
 
-    $sql = "SELECT passwd FROM usertable WHERE username=?";
+    $sql = "SELECT salasana FROM kayttaja WHERE sahkoposti=?";
     $statement = $db->prepare($sql);
-    $statement->execute(array($uname));
+    $statement->execute(array($email));
 
     $hashedpw = $statement->fetchColumn();
 
     if(isset($hashedpw)) {
-        return password_verify($pw, $hashedpw) ? $uname: null;
+        return password_verify($pw, $hashedpw) ? $email: null;
     }
 
     return null;
