@@ -5,7 +5,7 @@ import axios from 'axios';
 
 
 
-const Nikeairforce = (props, {addToCart}) => { 
+const Nikeairforce = (props) => { 
 
     // Korjailua addToCart
 
@@ -23,7 +23,10 @@ const Nikeairforce = (props, {addToCart}) => {
           alert(error.response === undefined ? error : error.response.data.error);
         })
     }, [params])
+
+    // Kutsu muuttujaan propseina
     
+    const {addToCart} = props;
 
     return (
         <div id="product">
