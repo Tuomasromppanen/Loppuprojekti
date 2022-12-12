@@ -13,12 +13,12 @@ const Register = (props) => {
     function register(e) {
         const json = {email, pw}
         console.log(json)
+        e.preventDefault() // Testailua varten
         axios.post("http://localhost:3000/Publish/rest_register.php", json ,{withCredentials:true})
         .then((response) => 
         setEmail(email),
         SetPw(pw))
         .catch(e => console.log(e.message))
-        alert('Olet rekistöröitynyt asiakkaaksi')
     }
 
     let navigate = useNavigate(); 

@@ -49,7 +49,7 @@ function SkateBoard(props) {
                     </div>
 
                         <div className="col-xs-12 col-md-4 col-xl-4">
-                        <Link to="vansspliton">
+                        <Link to={"/vanspliton/" + vanspliton.id}>
                         <img src={'http://localhost:3000/Publish/images/' + vanspliton.kuva} alt="Loading..."/>
                         <h4>{vanspliton.tuotenimi}</h4>
                         <p>{vanspliton.hinta}</p>
@@ -57,7 +57,7 @@ function SkateBoard(props) {
                         </div>
 
                         <div className="col-xs-12 col-md-4 col-xl-4">
-                        <Link to="vanssplitonpro">
+                        <Link to={"/vansplitonpro/" + vansplitonpro.id}>
                         <img src={'http://localhost:3000/Publish/images/' + vansplitonpro.kuva} alt=""/>
                         <h4>{vansplitonpro.tuotenimi}</h4>
                         <p>{vansplitonpro.hinta}</p>
@@ -65,7 +65,7 @@ function SkateBoard(props) {
                         </div>
 
                         <div className="col-xs-12 col-md-4 col-xl-4">
-                        <Link to="vansauthentic">
+                        <Link to={"/vansauthentic/" + vansauthentic.id}>
                         <img src={'http://localhost:3000/Publish/images/' + vansauthentic.kuva} alt=""/>
                         <h4>{vansauthentic.tuotenimi}</h4>
                         <p>{vansauthentic.hinta}</p>
@@ -76,7 +76,7 @@ function SkateBoard(props) {
                 <div className="row">
 
                         <div className="col-xs-12 col-md-4 col-xl-4">
-                        <Link to="nikeblazer">
+                        <Link to={"/nikeblazer/" + nikeblazer.id}>
                         <img src={'http://localhost:3000/Publish/' + 'images/' + nikeblazer.kuva} alt=""/>
                         <h4>{nikeblazer.tuotenimi}</h4>
                         <p>{nikeblazer.hinta}</p>
@@ -84,7 +84,7 @@ function SkateBoard(props) {
                         </div>
 
                         <div className="col-xs-12 col-md-4 col-xl-4">
-                        <Link to="reebok">
+                        <Link to={"/reebok/" + reebok.id}>
                         <img src={'http://localhost:3000/Publish/' + 'images/' + reebok.kuva} alt=""/>
                         <h4>{reebok.tuotenimi}</h4>
                         <p>{reebok.hinta}</p>

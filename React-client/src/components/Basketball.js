@@ -46,7 +46,7 @@ const Basketball = (props) => {
                     </div>
 
                 <div className="col-xs-12 col-md-4 col-xl-4">
-                        <Link to="jordan1low">
+                        <Link to={"/jordan1low/" + jordan1Low.id}>
                         <img src={'http://localhost:3000/Publish/images/' + jordan1Low.kuva} alt="Loading..."/>
                         <h4>{jordan1Low.tuotenimi}</h4>
                         <p>{jordan1Low.hinta}</p>
@@ -54,7 +54,7 @@ const Basketball = (props) => {
                   </div>
 
                   <div className="col-xs-12 col-md-4 col-xl-4">
-                        <Link to="jordan1mid">
+                        <Link to={"/jordan1mid/" + jordan1Mid.id}>
                         <img src={'http://localhost:3000/Publish/images/' + jordan1Mid.kuva} alt=""/>
                         <h4>{jordan1Mid.tuotenimi}</h4>
                         <p>{jordan1Mid.hinta}</p>
@@ -62,7 +62,7 @@ const Basketball = (props) => {
                         </div>
 
                         <div className="col-xs-12 col-md-4 col-xl-4">
-                        <Link to="nikenkd">
+                        <Link to={"/nikekd/" + nikekd.id}>
                         <img src={'http://localhost:3000/Publish/images/' + nikekd.kuva} alt=""/>
                         <h4>{nikekd.tuotenimi}</h4>
                         <p>{nikekd.hinta}</p>
@@ -73,7 +73,7 @@ const Basketball = (props) => {
                 <div className="row">
 
                 <div className="col-xs-12 col-md-4 col-xl-4">
-                        <Link to="converse">
+                        <Link to={"/converse/" + converse.id}>
                         <img src={'http://localhost:3000/Publish/images/' + converse.kuva} alt=""/>
                         <h4>{converse.tuotenimi}</h4>
                         <p>{converse.hinta}</p>
@@ -81,7 +81,7 @@ const Basketball = (props) => {
                         </div>
 
                         <div className="col-xs-12 col-md-4 col-xl-4">
-                        <Link to="reebok">
+                        <Link to={"/reebok/" + reebok.id}>
                         <img src={'http://localhost:3000/Publish/images/' + reebok.kuva} alt=""/>
                         <h4>{reebok.tuotenimi}</h4>
                         <p>{reebok.hinta}</p>

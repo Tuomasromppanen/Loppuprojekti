@@ -4,23 +4,6 @@
     width: 100%;
 }
 
-#product > div:nth-child(2) {
-    height: 40px;
-    background-color:  #F8A700;
-}
-
-#product > div:nth-child(2) p:first-child {
-    float: left;
-    padding-left: 200px;
-    padding-top: 6px;
-}
-
-#product > div:nth-child(2) p:last-child {
-    float: right;
-    padding-right: 200px;
-    padding-top: 6px;
-}
-
 #product a {
     text-decoration: none;
     color: black;
@@ -73,18 +56,6 @@
         display: none;
     }
 }
-
-#product > div:nth-child(3) {
-    height: 80px;
-    background-color: #102E62;
-    color: white;
-}
-
-#product > div:nth-child(3) h1:first-child {
-    text-align: center;
-    padding-top: 16px;
-}
-
 
 .container {
     margin-top: 30px;

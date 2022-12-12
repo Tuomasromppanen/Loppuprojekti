@@ -13,12 +13,11 @@ require_once '../Publish/headers.php';
 
 $db = SqliteConnection('../mydatabase.db');
 
-$uri = parse_url(filter_input(INPUT_SERVER, 'PATH_INFO'), PHP_URL_PATH);
+$uri = parse_url(filter_input(INPUT_SERVER,'PATH_INFO'),PHP_URL_PATH);
+$parameters = explode('/',$uri);
+$product_id = $parameters[1];
 
-$parameters = explode('/', $uri);
-$id = $parameters[1];
-
-$sql = "SELECT * FROM tuote where id = $id";
+$sql = "SELECT * FROM tuote where id = $product_id";
 $query = $db->query($sql);
 $product = $query->fetch(PDO::FETCH_ASSOC);
 

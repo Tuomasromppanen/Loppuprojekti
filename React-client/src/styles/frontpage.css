@@ -35,3 +35,72 @@
     
 }
 
+.wrapper-4 {
+    position: relative;
+    margin: 0px;
+    background-image: url(../Kuvat/Sivustokuvat/KengätArtboard2.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    width: 100%;
+    height: 30vw;
+}
+
+.wrapper-4 button {
+    font-size: 1.6vw;
+    background-color: orange;
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    border: none;
+    padding: 5px;
+    color: #102E62;
+    font-weight: bold;
+}
+
+.wrapper-6 {
+    position: relative;
+    margin: 0px;
+    background-image: url(../Kuvat/Sivustokuvat/KengätArtboard3.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    width: 100%;
+    height: 30vw;
+}
+
+.wrapper-6 button {
+    font-size: 1.6vw;
+    background-color: orange;
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    border: none;
+    padding: 5px;
+    color: #102E62;
+    font-weight: bold;
+
+
+}
+
+.wrapper-12 {
+    position: relative;
+    margin: 0px;
+    background-image: url(../Kuvat/Sivustokuvat/KengätArtboard4.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    width: 100%;
+    height: 30vw;
+}
+
+.wrapper-12 button {
+    font-size: 1.6vw;
+    background-color: orange;
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    border: none;
+    padding: 5px;
+    color: #102E62;
+    font-weight: bold;
+
+
+}

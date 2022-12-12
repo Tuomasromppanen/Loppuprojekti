@@ -1,22 +1,35 @@
 import '../../styles/product.css'
+import { useParams } from 'react-router-dom';
+import {useState, useEffect} from 'react';
+import axios from 'axios';
 
 
-const nikeairforce = (props) => {
+
+const Nikeairforce = (props, {addToCart}) => { 
+
+    // Korjailua addToCart
+
+    const [NikeAirforce, setNikeAirforce] = useState([]);
+
+    let params = useParams();
     
+    useEffect(() => {
+      axios.get('http://localhost:3000/Publish/product-specific.php/' + params.productId)
+        .then((response) => {
+          const json = response.data;
+          console.log(json.tuote);
+          setNikeAirforce(json.tuote);
+        }).catch(error => {
+          alert(error.response === undefined ? error : error.response.data.error);
+        })
+    }, [params])
+    
+
     return (
         <div id="product">
 
             <div className="col-12 ">
             <img src= {props.walk} alt=""/>
-            </div>
-
-            <div className="col-12">
-                <p>30 päivän palautusoikeus</p>
-                <p>Ilmainen toimitus ja palautus</p>
-            </div>
-
-            <div className="col-12 header">
-                <h1>{props.productHeader}</h1>
             </div>
 
             <div className="container product">
@@ -77,7 +90,13 @@ const nikeairforce = (props) => {
                         <select>
                             {props.shoeSize.map((size) => <option>{size}</option>)}
                         </select>
-                        <button type="submit">Lisää koriin</button>
+                        
+                        {[NikeAirforce].map(nikeairforce => (
+                        <div key={nikeairforce.id}>
+                        <button type="button" onClick={e => addToCart(nikeairforce)}>Lisää koriin</button>
+                        </div>
+                        ))}
+
                         </form>
                         </div>
 
@@ -109,4 +128,4 @@ const nikeairforce = (props) => {
     )
 }
 
-export default nikeairforce
+export default Nikeairforce

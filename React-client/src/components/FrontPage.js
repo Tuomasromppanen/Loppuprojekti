@@ -2,6 +2,7 @@ import '../styles/frontpage.css'
 
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
 
@@ -53,17 +54,21 @@ const FrontPage = ({url}) => {
             </div>
             <div className="row mx-0 my-1 d-flex flex-lg-nowrap">
               <div className="col-xs-12 col-md-4 col-xl-4 p-0 border">
-                <img width="100%" src={require ("../Kuvat/Sivustokuvat/KengätArtboard2.jpg")} alt=""></img>
+                <div className="wrapper-4">
+                  <Link to={"/kävelykengät/" + categorywalk.trnro}><button>Kävelykengät</button></Link>
+                </div>
               </div>
               <div className="col-xs-12 col-md-4 col-xl-4 p-0 border">
-              <img width="100%" src={require ("../Kuvat/Sivustokuvat/KengätArtboard3.jpg")} alt=""></img>
+              <div className="wrapper-6">
+                  <Link  to={"/koripallokengät/" + categorybasket.trnro}><button>Koripallokengät</button></Link>
+                </div>
               </div>
               <div className="col-xs-12 col-md-4 col-xl-4 p-0 border">
-              <img width="100%" src={require ("../Kuvat/Sivustokuvat/KengätArtboard4.jpg")} alt=""></img>
+              <div className="wrapper-12">
+                  <Link to={"/skeittikengät/" + categoryskate.trnro}><button>Skeittikengät</button></Link>
+                </div>
               </div>
-                {/* <Link menLink={"/kävelykengät/" + categorywalk.trnro} image={kavelyImage} categoryName={"Kävelykengät"} />
-                <Link  menLink={"/koripallokengät/" + categorybasket.trnro} image={koripalloImage} categoryName={"Koripallokengät"} />
-                <Link menLink={"/skeittikengät/" + categoryskate.trnro} image={skeittiImage} categoryName={"Skeittikengät"} /> */}
+              
             </div>
         </div>
     );

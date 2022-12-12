@@ -55,7 +55,7 @@ function WalkShoes(props) {
 
                         
                         <div className="col-xs-12 col-md-4 col-xl-4">
-                        <Link to="nikeairforce">
+                        <Link to={"/nikeairforce/" + airforce.id}>
                         <img src={'http://localhost:3000/Publish/images/' + airforce.kuva} alt="Loading..."/>
                         <h4>{airforce.tuotenimi}</h4>
                         <p>{airforce.hinta}</p>
@@ -63,7 +63,7 @@ function WalkShoes(props) {
                         </div>
                     
                         <div className="col-xs-12 col-md-4 col-xl-4">
-                        <Link to="nikeairforce720">
+                        <Link to={"/nikeairforce720/" + airforce720.id}>
                         <img src={'http://localhost:3000/Publish/images/' + airforce720.kuva} alt=""/>
                         <h4>{airforce720.tuotenimi}</h4>
                         <p>{airforce720.hinta}</p>
@@ -71,7 +71,7 @@ function WalkShoes(props) {
                         </div>
 
                         <div className="col-xs-12 col-md-4 col-xl-4">
-                        <Link to="adidasy3">
+                        <Link to={"/adidasy3/" + adidasy3.id}>
                         <img src={'http://localhost:3000/Publish/images/' + adidasy3.kuva} alt=""/>
                         <h4>{adidasy3.tuotenimi}</h4>
                         <p>{adidasy3.hinta}</p>
@@ -82,7 +82,7 @@ function WalkShoes(props) {
                 <div className="row">
 
                         <div className="col-xs-12 col-md-4 col-xl-4">
-                        <Link to="nikeairforce97">
+                        <Link to={"/nikeairforce97/" + nikeairforce97.id}>
                         <img src={'http://localhost:3000/Publish/images/' + nikeairforce97.kuva} alt=""/>
                         <h4>{nikeairforce97.tuotenimi}</h4>
                         <p>{nikeairforce97.hinta}</p>
@@ -90,7 +90,7 @@ function WalkShoes(props) {
                         </div>
 
                         <div className="col-xs-12 col-md-4 col-xl-4">
-                        <Link to="yeezy">
+                        <Link to={"/yeezy/" + yeezy.id}>
                         <img src={'http://localhost:3000/Publish/images/' + yeezy.kuva} alt=""/>
                         <h4>{yeezy.tuotenimi}</h4>
                         <p>{yeezy.hinta}</p>
@@ -98,7 +98,7 @@ function WalkShoes(props) {
                         </div>
 
                         <div className="col-xs-12 col-md-4 col-xl-4">
-                        <Link to="adidasgazelle">
+                        <Link to={"/adidasgazelle/" + adidasgazelle.id}>
                         <img src={'http://localhost:3000/Publish/images/' + adidasgazelle.kuva} alt=""/>
                         <h4>{adidasgazelle.tuotenimi}</h4>
                         <p>{adidasgazelle.hinta}</p>

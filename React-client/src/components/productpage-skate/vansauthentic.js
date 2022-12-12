@@ -1,21 +1,32 @@
 import '../../styles/product.css'
 
+import { useParams } from 'react-router-dom';
+import {useState, useEffect} from 'react';
+import axios from 'axios';
 
-const vansauthentic = (props) => {
+
+const Vansauthentic = (props) => {
+
+    const [vansauthentic, setVansauthentic] = useState(null);
+
+    let params = useParams();
+    
+    useEffect(() => {
+      axios.get('http://localhost:3000/Publish/product-specific.php/' + params.productId)
+        .then((response) => {
+          const json = response.data;
+          console.log(json);
+          setVansauthentic(json.tuote[2]);
+        }).catch(error => {
+          alert(error.response === undefined ? error : error.response.data.error);
+        })
+    }, [params])
+
     return (
         <div id="product">
 
             <div className="col-12 ">
             <img src= {props.skate} alt=""/>
-            </div>
-
-            <div className="col-12">
-                <p>30 päivän palautusoikeus</p>
-                <p>Ilmainen toimitus ja palautus</p>
-            </div>
-
-            <div className="col-12 header">
-                <h1>{props.productHeader}</h1>
             </div>
 
             <div className="container product">
@@ -106,4 +117,4 @@ const vansauthentic = (props) => {
     )
 }
 
-export default vansauthentic
+export default Vansauthentic
