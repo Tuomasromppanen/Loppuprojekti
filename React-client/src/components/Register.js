@@ -10,22 +10,26 @@ const Register = (props) => {
     const [email, setEmail] = useState("")
     const [pw, SetPw] = useState("")
 
-    function register(e) {
+    let navigate = useNavigate();
+
+    function routeChange (e) {
         const json = {email, pw}
         console.log(json)
         e.preventDefault() // Testailua varten
         axios.post("http://localhost:3000/Publish/rest_register.php", json ,{withCredentials:true})
-        .then((response) => 
-        setEmail(email),
-        SetPw(pw))
-        .catch(e => console.log(e.message))
-    }
+        .then((response) => {
+            // Navigate to the next page after a successful submission
+            navigate("/");
+          })
+          .catch(e => console.log(e.message));
+      }
+      
 
-    let navigate = useNavigate(); 
-    const routeChange = () =>{ 
-    let path = `/`; 
-    navigate(path);
-  }
+//     let navigate = useNavigate(); 
+//     const routeChange = () =>{ 
+//     let path = `/`; 
+//     navigate(path);
+//   }
 
     useEffect(() => {
         props.navbarHidingState(true)
@@ -40,7 +44,7 @@ const Register = (props) => {
         <div className="container-fluid registerContainer">
             <div className="row">
                 <div className="col-12">
-                    <form className="registerForm" action='/' onSubmit={register}>
+                    <form className="registerForm" action='/' onSubmit={routeChange}>
                         <img className="logo" src={logo} alt=""></img>
                         <p className="inputLabels mt-0 mb-2">Sähköposti*</p>
                         <input className="registerInputs mb-2" type="email" onChange={e=>setEmail(e.target.value)} required/>

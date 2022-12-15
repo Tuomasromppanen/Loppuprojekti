@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const Nikeairforce720 = (props) => {
 
-    const [NikeAirforce720, setNikeAirforce720] = useState(null);
+    const [NikeAirforce720, setNikeAirforce720] = useState([]);
 
     let params = useParams();
     
@@ -15,11 +15,13 @@ const Nikeairforce720 = (props) => {
         .then((response) => {
           const json = response.data;
           console.log(json);
-          setNikeAirforce720(json.tuote[1]);
+          setNikeAirforce720(json.tuote);
         }).catch(error => {
           alert(error.response === undefined ? error : error.response.data.error);
         })
     }, [params])
+
+    const {addToCart} = props;
 
     return (
         <div id="product">
@@ -84,7 +86,13 @@ const Nikeairforce720 = (props) => {
                         <select>
                             {props.shoeSize.map((size) => <option>{size}</option>)}
                         </select>
-                        <button type="submit">Lisää koriin</button>
+
+                        {[NikeAirforce720].map(product => (
+                        <div key={product.id}>
+                        <button type="button" onClick={e => addToCart(product)}>Lisää koriin</button>
+                        </div>
+                        ))}
+
                         </form>
                         </div>
 

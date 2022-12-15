@@ -1,10 +1,12 @@
 import '../styles/LoginForm.css'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
+
 function LoginForm() {
 
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [email, setEmail] = useState("")
     const [pw, SetPw] = useState("")
 
@@ -15,13 +17,15 @@ function LoginForm() {
         formData.append("pw", pw)
 
         axios.post("http://localhost:3000/Publish/rest_login.php", formData ,{withCredentials:true})
-        console.log(formData)
-        .then((response) => 
-        setEmail(email),
-        SetPw(pw))
-        .catch(e => console.log(e.message))
-
-        }
+        .then((response) => {
+          setIsLoggedIn(true)
+          setEmail(email)
+          SetPw(pw)
+        })
+        .catch(e => {
+            alert('Wrong email or password. Please try again.')
+        })
+    }
 
     const [isActive, setIsActive] = useState(false)
     const handleClick = () => {
@@ -53,6 +57,7 @@ function LoginForm() {
                             <input type="password" value={pw} placeholder="Syötä salasana" onChange={e=>SetPw(e.target.value)} required></input>
                             <a href="/#"> Unohditko salasanan</a>
                             <button type="button" onClick={logIn}>Kirjaudu sisään tunnuksillasi</button>
+                            {isLoggedIn && <div>You are now logged in!</div>}
                         </div>
 
                     </form>

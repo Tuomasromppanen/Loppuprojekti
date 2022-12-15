@@ -9,7 +9,6 @@ import SkateBoard from "./components/SkateBoard"
 import Basketball from "./components/Basketball"
 
 import WalkShoesM from "./Kuvat/Sivustokuvat/photo.jpg"
-import WalkShoesW from "./Kuvat/Sivustokuvat/walkingWomen.jpg"
 
 import NikeAirforce from "./components/productpage-walk/nikeairforce"
 import NikeAirforce720 from "./components/productpage-walk/nikeairforce720"
@@ -19,7 +18,6 @@ import Yeezy from "./components/productpage-walk/yeezy"
 import Adidasgazelle from "./components/productpage-walk/adidasgazelle"
 
 import BasketBallM from "./Kuvat/Sivustokuvat/Basketball.jpg"
-import BasketBallW from "./Kuvat/Sivustokuvat/basketballWomen.jpg"
 
 import Jordan1low from "./components/productpage-basket/jordan1low"
 import Jordan1mid from "./components/productpage-basket/jordan1mid"
@@ -34,14 +32,10 @@ import NikeBlazer from "./components/productpage-skate/nikeblazer"
 import Reebook from "./components/productpage-skate/reebok"
 
 import SkateBoardM from "./Kuvat/Sivustokuvat/Skatebackground.jpg"
-import SkateBoardW from "./Kuvat/Sivustokuvat/skateboardingWomen.jpg"
 
 import BasketballM from "./Kuvat/Sivustokuvat/Basketball.jpg"
-import BasketballW from "./Kuvat/Sivustokuvat/basketballWomen.jpg"
 import WalkingM from "./Kuvat/Sivustokuvat/photo.jpg"
-import WalkingW from "./Kuvat/Sivustokuvat/walkingWomen.jpg"
 import SkateboardM from "./Kuvat/Sivustokuvat/Skatebackground.jpg"
-import SkateboardW from "./Kuvat/Sivustokuvat/skateboardingWomen.jpg"
 
 import Register from './components/Register'
 
@@ -55,12 +49,19 @@ const App = () => {
   const [cart, setCart] = useState([]);
 
 
-  function addToCart(product) {
-    const newCart = [...cart,product];
-    setCart(newCart);
-    localStorage.setItem('cart', JSON.stringify(newCart));
+  function handleRemoveFromCart(product)  {
+    const itemsWithoutRemoved = cart.filter(i => i.id !== product.id);
+    setCart(itemsWithoutRemoved);
+    localStorage.setItem('cart', JSON.stringify(itemsWithoutRemoved));
   }
+  
+  function addToCart(product) {
 
+      const newCart = [...cart,product];
+      setCart(newCart);
+      localStorage.setItem('cart', JSON.stringify(newCart));
+    
+  }
 
 
   return (
@@ -68,7 +69,7 @@ const App = () => {
 
   {navbarHidden
       ? null
-      : <Nav url={url} cart={cart}/>
+      : <Nav url={url} cart={cart} />
     }
     
     <Routes>
@@ -80,24 +81,24 @@ const App = () => {
       <Route path="brandisivusto" element={<Brands/>}></Route>
       <Route path="Register" element={<Register navbarHidingState={setNavbarHidden} footerHidingState={setFooterHidden} />}></Route>
 
-      <Route path="nikeairforce/:productId" element={<NikeAirforce addToCart={addToCart} walk={[WalkShoesM]} productHeader="Miesten kävelykengät" name="Nike Airforce" price="100€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
-      <Route path="nikeairforce720/:productId" element={<NikeAirforce720 walk={[WalkShoesM]} productHeader="Miesten kävelykengät" name="Nike Airforce 720" price="120€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
-      <Route path="adidasy3/:productId" element={<AdidasY3 walk={[WalkShoesM]} productHeader="Miesten kävelykengät" name="Adidas Y3" price="200€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
-      <Route path="nikeairforce97/:productId" element={<NikeAirforce97 walk={[WalkShoesM]} productHeader="Miesten kävelykengät" name="Nike Airforce 97" price="90€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Sininen"]} shoeSize={[40,41,42,44]}/>}></Route>
-      <Route path="yeezy/:productId" element={<Yeezy walk={[WalkShoesM]} productHeader="Miesten kävelykengät" name="Yeezy" price="200€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Ruskea"]} shoeSize={[40,41,42,44]}/>}></Route>
-      <Route path="adidasgazelle/:productId" element={<Adidasgazelle walk={[WalkShoesM]} productHeader="Miesten kävelykengät" name="Adidas Gazelle" price="80€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Sininen"]} shoeSize={[40,41,42,44]}/>}></Route>
+      <Route path="nikeairforce/:productId" element={<NikeAirforce handleRemoveFromCart={handleRemoveFromCart} addToCart={addToCart} walk={[WalkShoesM]} productHeader="Miesten kävelykengät" name="Nike Airforce" price="100€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
+      <Route path="nikeairforce720/:productId" element={<NikeAirforce720 addToCart={addToCart} walk={[WalkShoesM]} productHeader="Miesten kävelykengät" name="Nike Airforce 720" price="120€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
+      <Route path="adidasy3/:productId" element={<AdidasY3 addToCart={addToCart} walk={[WalkShoesM]} productHeader="Miesten kävelykengät" name="Adidas Y3" price="200€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
+      <Route path="nikeairforce97/:productId" element={<NikeAirforce97 addToCart={addToCart} walk={[WalkShoesM]} productHeader="Miesten kävelykengät" name="Nike Airforce 97" price="90€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Sininen"]} shoeSize={[40,41,42,44]}/>}></Route>
+      <Route path="yeezy/:productId" element={<Yeezy addToCart={addToCart} walk={[WalkShoesM]} productHeader="Miesten kävelykengät" name="Yeezy" price="200€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Ruskea"]} shoeSize={[40,41,42,44]}/>}></Route>
+      <Route path="adidasgazelle/:productId" element={<Adidasgazelle addToCart={addToCart} walk={[WalkShoesM]} productHeader="Miesten kävelykengät" name="Adidas Gazelle" price="80€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Sininen"]} shoeSize={[40,41,42,44]}/>}></Route>
 
-      <Route path="jordan1low/:productId" element={<Jordan1low basket={[BasketBallM]} productHeader="Miesten koripallokengät" name="Jordan 1 low" price="170€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Oranssi"]} shoeSize={[40,41,42,44]}/>}></Route>
-      <Route path="jordan1mid/:productId" element={<Jordan1mid basket={[BasketBallM]} productHeader="Miesten koripallokengät" name="Jordan 1 Mid" price="150€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
-      <Route path="nikekd/:productId" element={<NikeKD basket={[BasketBallM]} productHeader="Miesten koripallokengät" name="Nike KD" price="70€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Harmaa"]} shoeSize={[40,41,42,44]}/>}></Route>
-      <Route path="converse/:productId" element={<Converse basket={[BasketBallM]} productHeader="Miesten koripallokengät" name="Converse" price="120€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
-      <Route path="reebok/:productId" element={<Reebok basket={[BasketBallM]} productHeader="Miesten koripallokengät" name="Reebok" price="90€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
+      <Route path="jordan1low/:productId" element={<Jordan1low addToCart={addToCart} basket={[BasketBallM]} productHeader="Miesten koripallokengät" name="Jordan 1 low" price="170€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Oranssi"]} shoeSize={[40,41,42,44]}/>}></Route>
+      <Route path="jordan1mid/:productId" element={<Jordan1mid addToCart={addToCart} basket={[BasketBallM]} productHeader="Miesten koripallokengät" name="Jordan 1 Mid" price="150€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
+      <Route path="nikekd/:productId" element={<NikeKD addToCart={addToCart} basket={[BasketBallM]} productHeader="Miesten koripallokengät" name="Nike KD" price="70€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Harmaa"]} shoeSize={[40,41,42,44]}/>}></Route>
+      <Route path="converse/:productId" element={<Converse addToCart={addToCart} basket={[BasketBallM]} productHeader="Miesten koripallokengät" name="Converse" price="120€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
+      <Route path="reebok/:productId" element={<Reebok addToCart={addToCart} basket={[BasketBallM]} productHeader="Miesten koripallokengät" name="Reebok" price="90€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
 
-      <Route path="vanspliton/:productId" element={<Vansspliton skate={[SkateBoardM]} productHeader="Miesten skeittikengät" name="Vans Split On" price="40€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
-      <Route path="vansplitonpro/:productId" element={<Vanssplitonpro skate={[SkateBoardM]} productHeader="Miesten skeittikengät" name="Vans Split On Pro" price="50€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Vihreä"]} shoeSize={[40,41,42,44]}/>}></Route>
-      <Route path="vansauthentic/:productId" element={<VansAuthentic skate={[SkateBoardM]} productHeader="Miesten skeittikengät" name="Vans Authentic" price="50€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Punainen"]} shoeSize={[40,41,42,44]}/>}></Route>
-      <Route path="nikeblazer/:productId" element={<NikeBlazer skate={[SkateBoardM]} productHeader="Miesten skeittikengät" name="Nike Blazer" price="60€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Harmaa"]} shoeSize={[40,41,42,44]}/>}></Route>
-      <Route path="reebok/:productId" element={<Reebook skate={[SkateBoardM]} productHeader="Miesten skeittikengät" name="Reebok" price="90€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
+      <Route path="vanspliton/:productId" element={<Vansspliton addToCart={addToCart} skate={[SkateBoardM]} productHeader="Miesten skeittikengät" name="Vans Split On" price="40€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
+      <Route path="vansplitonpro/:productId" element={<Vanssplitonpro addToCart={addToCart} skate={[SkateBoardM]} productHeader="Miesten skeittikengät" name="Vans Split On Pro" price="50€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Vihreä"]} shoeSize={[40,41,42,44]}/>}></Route>
+      <Route path="vansauthentic/:productId" element={<VansAuthentic addToCart={addToCart} skate={[SkateBoardM]} productHeader="Miesten skeittikengät" name="Vans Authentic" price="50€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Punainen"]} shoeSize={[40,41,42,44]}/>}></Route>
+      <Route path="nikeblazer/:productId" element={<NikeBlazer addToCart={addToCart} skate={[SkateBoardM]} productHeader="Miesten skeittikengät" name="Nike Blazer" price="60€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Harmaa"]} shoeSize={[40,41,42,44]}/>}></Route>
+      <Route path="reebok/:productId" element={<Reebook addToCart={addToCart} skate={[SkateBoardM]} productHeader="Miesten skeittikengät" name="Reebok" price="90€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
 
     </Routes>
 

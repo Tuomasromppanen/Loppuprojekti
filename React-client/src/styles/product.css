@@ -130,7 +130,7 @@
     color: black;
 }
 
-.container > div:nth-child(2) div:nth-child(1) button[type="submit"] {
+.container > div:nth-child(2) div:nth-child(1) button[type="button"] {
     display: block;
     background-color: #F8A700;
     border: none;

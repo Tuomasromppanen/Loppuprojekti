@@ -8,7 +8,7 @@ import Searchbar from './Searchbar.js'
 import LoginForm from './LoginForm'
 
 
-const Nav = ({url, cart}) => {
+const Nav = ({url, cart, handleRemoveFromCart}) => {
 
   const [categorywalk, setCategorywalk] = useState([])
   const [categorybasket, setCategorybasket] = useState([])
@@ -65,7 +65,7 @@ const Nav = ({url, cart}) => {
         <Searchbar />
         <div className="d-flex flex-row buttonContainer">
           <LoginForm />
-          <Shoppingcart cart={cart} /> 
+          <Shoppingcart cart={cart} handleRemoveFromCart={handleRemoveFromCart} /> 
           <button className="navbar-toggler p-0" data-bs-toggle="collapse" type="button" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <svg id="hamburgerIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
               <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />

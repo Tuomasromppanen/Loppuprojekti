@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const Vansauthentic = (props) => {
 
-    const [vansauthentic, setVansauthentic] = useState(null);
+    const [vansauthentic, setVansauthentic] = useState([]);
 
     let params = useParams();
     
@@ -16,11 +16,13 @@ const Vansauthentic = (props) => {
         .then((response) => {
           const json = response.data;
           console.log(json);
-          setVansauthentic(json.tuote[2]);
+          setVansauthentic(json.tuote);
         }).catch(error => {
           alert(error.response === undefined ? error : error.response.data.error);
         })
     }, [params])
+
+    const {addToCart} = props;
 
     return (
         <div id="product">
@@ -85,7 +87,13 @@ const Vansauthentic = (props) => {
                         <select>
                             {props.shoeSize.map((size) => <option>{size}</option>)}
                         </select>
-                        <button type="submit">Lisää koriin</button>
+
+                        {[vansauthentic].map(product => (
+                        <div key={product.id}>
+                        <button type="button" onClick={e => addToCart(product)}>Lisää koriin</button>
+                        </div>
+                        ))}
+
                         </form>
                         </div>
 

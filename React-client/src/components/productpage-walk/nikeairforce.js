@@ -1,6 +1,7 @@
 import '../../styles/product.css'
 import { useParams } from 'react-router-dom';
 import {useState, useEffect} from 'react';
+import Shoppingcart from '../Shoppingcart'
 import axios from 'axios';
 
 
@@ -27,6 +28,9 @@ const Nikeairforce = (props) => {
     // Kutsu muuttujaan propseina
     
     const {addToCart} = props;
+
+    console.log(addToCart);
+
 
     return (
         <div id="product">
@@ -94,9 +98,9 @@ const Nikeairforce = (props) => {
                             {props.shoeSize.map((size) => <option>{size}</option>)}
                         </select>
                         
-                        {[NikeAirforce].map(nikeairforce => (
-                        <div key={nikeairforce.id}>
-                        <button type="button" onClick={e => addToCart(nikeairforce)}>Lisää koriin</button>
+                        {[NikeAirforce].map(product => (
+                        <div key={product.id}>
+                        <button type="button" onClick={e => addToCart(product)}>Lisää koriin</button>
                         </div>
                         ))}
 

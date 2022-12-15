@@ -3,11 +3,12 @@ import '../../styles/product.css'
 import { useParams } from 'react-router-dom';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import Vansspliton from './vansspliton';
 
 
 const Vanssplitonpro = (props) => {
 
-    const [vansplitonpro, setVansplitonpro] = useState(null);
+    const [vansplitonpro, setVansplitonpro] = useState([]);
 
     let params = useParams();
     
@@ -16,11 +17,13 @@ const Vanssplitonpro = (props) => {
         .then((response) => {
           const json = response.data;
           console.log(json);
-          setVansplitonpro(json.tuote[1]);
+          setVansplitonpro(json.tuote);
         }).catch(error => {
           alert(error.response === undefined ? error : error.response.data.error);
         })
     }, [params])
+
+    const {addToCart} = props;
 
     return (
         <div id="product">
@@ -85,7 +88,13 @@ const Vanssplitonpro = (props) => {
                         <select>
                             {props.shoeSize.map((size) => <option>{size}</option>)}
                         </select>
-                        <button type="submit">Lisää koriin</button>
+
+                        {[vansplitonpro].map(product => (
+                        <div key={product.id}>
+                        <button type="button" onClick={e => addToCart(product)}>Lisää koriin</button>
+                        </div>
+                        ))}
+
                         </form>
                         </div>
 
