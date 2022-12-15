@@ -34,6 +34,8 @@ const Shoppingcart = ({cart, handleRemoveFromCart}) => {
             image={'http://localhost:3000/Publish/images/' + item.kuva}
             name={item.tuotenimi}
             price={item.hinta}
+            quantity={item.quantity}
+            product = {item}
             handleRemoveFromCart = {handleRemoveFromCart}
             />
           ))}
@@ -52,3 +54,5 @@ const Shoppingcart = ({cart, handleRemoveFromCart}) => {
 }
 
 export default Shoppingcart;
+
+

@@ -47,20 +47,30 @@ const App = () => {
   const url = 'http://localhost:3000/Publish'
 
   const [cart, setCart] = useState([]);
-
-
+  
   function handleRemoveFromCart(product)  {
     const itemsWithoutRemoved = cart.filter(i => i.id !== product.id);
     setCart(itemsWithoutRemoved);
     localStorage.setItem('cart', JSON.stringify(itemsWithoutRemoved));
   }
   
-  function addToCart(product) {
+  // function addToCart(product) {
 
-      const newCart = [...cart,product];
-      setCart(newCart);
-      localStorage.setItem('cart', JSON.stringify(newCart));
+  //     const newCart = [...cart,product];
+  //     setCart(newCart);
+  //     localStorage.setItem('cart', JSON.stringify(newCart));
     
+  // }
+
+  function addToCart(product) {
+    const existingProduct = cart.find((p) => p.id === product.id);
+    if (existingProduct) {
+      existingProduct.quantity++;
+    } else {
+      product.quantity = 1;
+      setCart([...cart, product]);
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
   }
 
 
@@ -69,7 +79,7 @@ const App = () => {
 
   {navbarHidden
       ? null
-      : <Nav url={url} cart={cart} />
+      : <Nav url={url} cart={cart} handleRemoveFromCart={handleRemoveFromCart} />
     }
     
     <Routes>
@@ -81,7 +91,7 @@ const App = () => {
       <Route path="brandisivusto" element={<Brands/>}></Route>
       <Route path="Register" element={<Register navbarHidingState={setNavbarHidden} footerHidingState={setFooterHidden} />}></Route>
 
-      <Route path="nikeairforce/:productId" element={<NikeAirforce handleRemoveFromCart={handleRemoveFromCart} addToCart={addToCart} walk={[WalkShoesM]} productHeader="Miesten kävelykengät" name="Nike Airforce" price="100€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
+      <Route path="nikeairforce/:productId" element={<NikeAirforce  addToCart={addToCart} walk={[WalkShoesM]} productHeader="Miesten kävelykengät" name="Nike Airforce" price="100€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
       <Route path="nikeairforce720/:productId" element={<NikeAirforce720 addToCart={addToCart} walk={[WalkShoesM]} productHeader="Miesten kävelykengät" name="Nike Airforce 720" price="120€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
       <Route path="adidasy3/:productId" element={<AdidasY3 addToCart={addToCart} walk={[WalkShoesM]} productHeader="Miesten kävelykengät" name="Adidas Y3" price="200€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
       <Route path="nikeairforce97/:productId" element={<NikeAirforce97 addToCart={addToCart} walk={[WalkShoesM]} productHeader="Miesten kävelykengät" name="Nike Airforce 97" price="90€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Sininen"]} shoeSize={[40,41,42,44]}/>}></Route>

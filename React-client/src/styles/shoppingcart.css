@@ -52,6 +52,7 @@
     color: #dbdbdb;
 }
 
+
 @media only screen and (min-width: 992px) {
     .shoppingcartContainer:hover .shoppingcartShow {
         display: block !important;
