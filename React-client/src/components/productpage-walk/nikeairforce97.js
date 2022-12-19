@@ -8,6 +8,7 @@ import axios from 'axios';
 const Nikeairforce97 = (props) => {
 
     const [NikeAirforce97, SetNikeAirforce97] = useState([]);
+    const [kokoluokka, setKokoluokka] = useState([]);
 
     let params = useParams();
     
@@ -17,6 +18,7 @@ const Nikeairforce97 = (props) => {
           const json = response.data;
           console.log(json);
           SetNikeAirforce97(json.tuote);
+          setKokoluokka(json.koko);
         }).catch(error => {
           alert(error.response === undefined ? error : error.response.data.error);
         })
@@ -80,12 +82,14 @@ const Nikeairforce97 = (props) => {
                         <form>
                         <h1>{props.name} {props.price}</h1>
                         <h4>Valitse väri</h4>
-                        <select>
-                            {props.color.map((color) => <option>{color}</option>)}
+                        <select id="colorSelect">
+                            <option>{NikeAirforce97.vari}</option>
                         </select>
                         <h4>Valitse kokoluokka</h4>
-                        <select>
-                            {props.shoeSize.map((size) => <option>{size}</option>)}
+                        <select id="sizeSelect">
+                        {kokoluokka.map(koko => (
+                            <option key={koko.id}>{koko.koko}</option>
+                        ))}
                         </select>
 
                         {[NikeAirforce97].map(product => (

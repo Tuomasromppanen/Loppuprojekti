@@ -65,7 +65,7 @@ function LoginForm() {
                     ? <div className="d-flex flex-column justify-content-center ">
                         <h1 className="loggedInLinks">Tervetuloa sivustolle</h1>
                         <p className="username">{email}</p>
-                        <button onClick={logoutUser} classname="logoutBtn" type="submit">Kirjaudu ulos</button>
+                        <button onClick={logoutUser} id="logout-button" classname="logoutBtn" type="submit">Kirjaudu ulos</button>
                     </div>
                     : <div className="form">
                 <form>

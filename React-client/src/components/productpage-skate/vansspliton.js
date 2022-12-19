@@ -8,6 +8,7 @@ import axios from 'axios';
 const Vansspliton = (props) => {
 
     const [vanspliton, setVanspliton] = useState([]);
+    const [kokoluokka, setKokoluokka] = useState([]);
 
     let params = useParams();
     
@@ -17,6 +18,7 @@ const Vansspliton = (props) => {
           const json = response.data;
           console.log(json);
           setVanspliton(json.tuote);
+          setKokoluokka(json.koko);
         }).catch(error => {
           alert(error.response === undefined ? error : error.response.data.error);
         })
@@ -80,12 +82,14 @@ const Vansspliton = (props) => {
                         <form>
                         <h1>{props.name} {props.price}</h1>
                         <h4>Valitse väri</h4>
-                        <select>
-                            {props.color.map((color) => <option>{color}</option>)}
+                        <select id="colorSelect">
+                            <option>{vanspliton.vari}</option>
                         </select>
                         <h4>Valitse kokoluokka</h4>
-                        <select>
-                            {props.shoeSize.map((size) => <option>{size}</option>)}
+                        <select id="sizeSelect">
+                        {kokoluokka.map(koko => (
+                            <option key={koko.id}>{koko.koko}</option>
+                        ))}
                         </select>
 
                         {[vanspliton].map(product => (

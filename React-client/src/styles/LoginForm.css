@@ -103,6 +103,12 @@ form a:hover {
     height: 30px;   
 }
 
+#logout-button {
+    background-color: #F8A700;
+    color:#102E62;
+    border: none;
+}
+
 
 @media only screen and (min-width: 992px) {
     .loginFormContainer:hover .object {
@@ -113,7 +119,7 @@ form a:hover {
     }
 
     .loginFormContainer:hover #loggedIcon {
-        color: #F8A700 !important;
+         color: #F8A700 !important;
     }
 }
 @media only screen and (max-width: 375px), (max-width: 425px) {

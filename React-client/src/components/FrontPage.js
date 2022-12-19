@@ -12,6 +12,16 @@ const FrontPage = ({url}) => {
     const [categorybasket, setCategorybasket] = useState([])
     const [categoryskate, setCategoryskate] = useState([])
   
+    let navigate = useNavigate();
+
+    function register() {
+        navigate("/register")
+    }
+
+    console.log(categorywalk)
+    console.log(categorybasket)
+    console.log(categoryskate)
+
     useEffect(() => {
       console.log(url + '/product_group.php')
       axios.get(url + '/product_group.php')
@@ -44,7 +54,7 @@ const FrontPage = ({url}) => {
                 <h1>Collect jäsen nyt</h1>
                 <h2>Kaikki tarjoukengät</h2>
                 <h3>-10%</h3>
-                <button>Lue lisää</button>
+                <button type="button" onClick={register}>Rekistöröidy</button>
                 </div>
 
             </div>

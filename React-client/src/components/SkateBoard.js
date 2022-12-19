@@ -15,9 +15,17 @@ function SkateBoard(props) {
 
     let params = useParams();
 
+    let address = '';
+
+    if (params.searchPhrase === undefined) {
+        address = ('http://localhost:3000/Publish/product.php/' + params.categoryskatetrnro)
+    } else {
+        address = ('http://localhost:3000/Publish/product.php/' + params.searchPhrase)
+    }
+
     useEffect(() => {
-        console.log('http://localhost:3000/Publish/product.php/' + params.categoryskatetrnro)
-        axios.get('http://localhost:3000/Publish/product.php/' + params.categoryskatetrnro)
+        console.log(address)
+        axios.get(address)
         .then((response) => {
           const json = response.data;
           console.log(json);

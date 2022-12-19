@@ -9,27 +9,26 @@ const Register = (props) => {
 
     const [email, setEmail] = useState("")
     const [pw, SetPw] = useState("")
+    const [register, setRegister] = useState(null)
 
     let navigate = useNavigate();
 
-    function routeChange (e) {
+    function Submit (e) {
         const json = {email, pw}
         console.log(json)
         e.preventDefault() // Testailua varten
         axios.post("http://localhost:3000/Publish/rest_register.php", json ,{withCredentials:true})
         .then((response) => {
             // Navigate to the next page after a successful submission
-            navigate("/");
+            // setRegister(response.data)
+            navigate("/")
           })
           .catch(e => console.log(e.message));
       }
-      
 
-//     let navigate = useNavigate(); 
-//     const routeChange = () =>{ 
-//     let path = `/`; 
-//     navigate(path);
-//   }
+      function Back () {
+        navigate("/")
+      }
 
     useEffect(() => {
         props.navbarHidingState(true)
@@ -41,21 +40,23 @@ const Register = (props) => {
     }, [])
 
     return (
+        
         <div className="container-fluid registerContainer">
             <div className="row">
                 <div className="col-12">
-                    <form className="registerForm" action='/' onSubmit={routeChange}>
+                    <form className="registerForm" onSubmit={Submit}>
                         <img className="logo" src={logo} alt=""></img>
                         <p className="inputLabels mt-0 mb-2">Sähköposti*</p>
                         <input className="registerInputs mb-2" type="email" onChange={e=>setEmail(e.target.value)} required/>
                         <p className="inputLabels mb-2">Salasana*</p>
                         <input className="registerInputs w-100" type="password" onChange={e=>SetPw(e.target.value)} required/>
                         <button className="registerButtons mx-0 d-block" type="submit">Luo uusi tunnus</button>
-                        <button id="frontPageLink" className="registerButtons mx-0" onClick={routeChange}>Palaa takaisin</button>
+                        <button type="button" id="frontPageLink" className="registerButtons mx-0" onClick={Back}>Palaa takaisin</button>
                     </form>
                 </div>
             </div>
         </div>
+        
     );
 }
 

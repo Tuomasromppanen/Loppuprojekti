@@ -11,6 +11,7 @@ const Nikeairforce = (props) => {
     // Korjailua addToCart
 
     const [NikeAirforce, setNikeAirforce] = useState([]);
+    const [kokoluokka, setKokoluokka] = useState([]);
 
     let params = useParams();
     
@@ -18,8 +19,9 @@ const Nikeairforce = (props) => {
       axios.get('http://localhost:3000/Publish/product-specific.php/' + params.productId)
         .then((response) => {
           const json = response.data;
-          console.log(json.tuote);
+          console.log(json);
           setNikeAirforce(json.tuote);
+          setKokoluokka(json.koko);
         }).catch(error => {
           alert(error.response === undefined ? error : error.response.data.error);
         })
@@ -90,14 +92,18 @@ const Nikeairforce = (props) => {
                         <form>
                         <h1>{props.name} {props.price}</h1>
                         <h4>Valitse väri</h4>
-                        <select>
-                            {props.color.map((color) => <option>{color}</option>)}
+                        <select id="colorSelect">
+                            <option>{NikeAirforce.vari}</option>
                         </select>
                         <h4>Valitse kokoluokka</h4>
-                        <select>
-                            {props.shoeSize.map((size) => <option>{size}</option>)}
+
+                   
+                        <select id="sizeSelect">
+                        {kokoluokka.map(koko => (
+                            <option key={koko.id}>{koko.koko}</option>
+                        ))}
                         </select>
-                        
+                      
                         {[NikeAirforce].map(product => (
                         <div key={product.id}>
                         <button type="button" onClick={e => addToCart(product)}>Lisää koriin</button>

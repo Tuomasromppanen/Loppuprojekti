@@ -18,8 +18,16 @@ function WalkShoes(props) {
     let params = useParams();
 
     useEffect(() => {
-        console.log('http://localhost:3000/Publish/product.php/' + params.categorywalktrnro)
-        axios.get('http://localhost:3000/Publish/product.php/' + params.categorywalktrnro)
+        let address = '';
+
+        if (params.searchPhrase === undefined) {
+            address = ('http://localhost:3000/Publish/product.php/' + params.categorywalktrnro)
+        } else {
+            address = ('http://localhost:3000/Publish/product.php/' + params.searchPhrase)
+        }
+
+        console.log(address)
+        axios.get(address)
         .then((response) => {
           const json = response.data;
           console.log(json);
