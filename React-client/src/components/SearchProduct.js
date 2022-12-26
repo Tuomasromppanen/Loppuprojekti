@@ -10,7 +10,6 @@ const SearchProduct = (props) => {
             <h1 className="productName">{props.name}</h1>
             <h2 className="productPrice">{props.price}€</h2>
             <Link className="link" to={`/${props.path}/${props.productId}`}>#Jalkineet</Link>
-           {console.log(Link)}
           </div>
         </div>
       );

@@ -91,19 +91,7 @@ const Basketball = (props) => {
             </div>
 
         </div>
-
-    //     <div>
-    //     <h3>products {category}</h3>
-     
-    //         <div >
-    //             {products}
-    //             </div>
-     
-          
-      
-
-      
-    // </div>
+        
     )
 }
 

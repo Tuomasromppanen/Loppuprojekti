@@ -113,18 +113,6 @@ function WalkShoes(props) {
            
 
         </div>
-        // <div>
-        //     <h3>products {category}</h3>
-          
-        //         <div >
-        //             {products}
-        //             </div>
-           
-              
-          
-
-          
-        // </div>
 
     )
 }
