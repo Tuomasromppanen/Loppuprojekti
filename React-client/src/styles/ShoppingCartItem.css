@@ -14,8 +14,7 @@
 }
 
 .deleteProductBtn {
-    width: 40px;
-    height: fit-content;
+    margin-left: 20px;
     background-color: transparent;
     border: none;
 }

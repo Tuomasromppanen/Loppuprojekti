@@ -16,7 +16,16 @@ const Nikeairforce = (props) => {
     let params = useParams();
     
     useEffect(() => {
-      axios.get('http://localhost:3000/Publish/product-specific.php/' + params.productId)
+
+        let address = '';
+
+        if (params.searchPhrase === undefined) {
+            address = ('http://localhost:3000/Publish/product-specific.php/' + params.productId)
+        } else {
+            address = ('http://localhost:3000/Publish/product-specific.php/' + params.searchPhrase)
+        }
+        
+      axios.get(address)
         .then((response) => {
           const json = response.data;
           console.log(json);

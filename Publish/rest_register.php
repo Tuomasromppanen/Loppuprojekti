@@ -13,13 +13,14 @@ if(!isset($user->email) || !isset($user->pw)) {
     return;
 }
 
+
 // Oikeasti pitäisi käyttäjänimi ja salasana
 // tutkia järkevästi (mitkä merkit sallittuja jne ja ilmoittaa käyttäjälle)
 // $uname = strip_tags($user->uname);
 
 registerUser($user->email, $user->pw);
 
-$_SESSION['sahkoposti'] = $user->email;
+// $_SESSION['sahkoposti'] = $user->email;
 
 http_response_code(200);
 echo "User". $user->email ."registered";

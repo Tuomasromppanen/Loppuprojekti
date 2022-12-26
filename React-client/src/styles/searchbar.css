@@ -11,46 +11,6 @@
     border: none;
 }
 
-.searchResult {
-    padding: 40px;
-    background-color: #102E62;
-    width: 350px;
-    height: 330px;
-    position: absolute;
-    top: 46px;
-    right: 0px;
-
-    scrollbar-color: #f8A700 #102e62;
-    overflow: auto;
-}
-
-.searchResult::-webkit-scrollbar {
-    background: #102e62;
-    width: 3px;
-}
-
-.searchResult::-webkit-scrollbar-thumb {
-    background: #f8A700;
-}
-
-.searchProductName {
-    color: #f8A700;
-    font-size: 20px;
-}
-
-.resultHeader {
-    color: #dbdbdb;
-    font-size: 25px;
-}
-
-
-.resultCounter {
-    color:#dbdbdb;
-}
-.categoryLinks {
-    color:#f8A700;
-    display: block;
-}
 
 @media only screen and (max-width: 991px) {
     .searchInput {
@@ -63,8 +23,65 @@
     .searchInput {
         width: 100%;
     }
-    .searchResult {
-        margin-top: 45px;
-        width: 100%;
+
+}
+
+.searchbarShow {
+    padding: 10px;
+    padding-left: 30px;
+    background-color: #102E62;
+    width: 330px;
+    height: 330px;
+    position: absolute;
+    top: 26.5px;
+    right: -114px;
+    float:right;
+    display: none;
+}
+
+.searchbarHeader {
+    color: #dbdbdb;
+}
+
+.searchbarArea {
+    scrollbar-color: #f8A700 #07204a;
+    overflow: auto;
+}
+
+.searchbarArea::-webkit-scrollbar {
+    background: #07204a;
+    width: 3px;
+}
+
+.searchbarArea::-webkit-scrollbar-thumb {
+    background: #f8A700;
+}
+
+@media only screen and (min-width: 992px) {
+    .searchContainer:hover .searchbarShow {
+        display: block !important;
+    }
+    .searchContainer:hover #searchbarIcon {
+        color: #F8A700 !important;
     }
 }
+
+@media only screen and (max-width: 375px) {
+
+    .searchbarShow {
+        width: 100%;
+        right: 0px;
+    }
+
+    .searchbarShow {
+        z-index: 2;
+    }
+
+}
+
+div.searchbarShow {
+    padding-left: 0px;
+    padding-right: 10px;
+}
+
+

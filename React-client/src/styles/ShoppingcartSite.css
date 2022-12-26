@@ -1,0 +1,132 @@
+html {
+    background: #102E62;
+}
+
+#Shoppingcart {
+    background-color: #102E62;
+    padding: 3em;
+    padding-bottom: 6em;
+}
+
+#header {
+    color: #F8A700;
+}
+
+#order, #total {
+    color: white;
+}
+
+#order {
+    font-weight: bold;
+}
+
+span {
+    color: white;
+}
+
+#totalText {
+    padding-top: 0.6em;
+    margin-left: 0px;
+    word-wrap: break-word;
+}
+
+#removeButton {
+    background-color: #102E62;
+    border: none;
+    color: white;
+    padding-bottom: 20px;
+}
+
+#checkOutButton, #backButton {
+    background-color: #F8A700; 
+    border: none;
+    padding: 0.2em;
+    margin-bottom: 0.6em;
+    color: #102E62;
+    width: 100%;
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+#incrementButton, #decrementButton {
+    background-color: #102E62; 
+    color: #F8A700;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+#incrementButton {
+    padding-left: 1em;
+}
+
+#decrementButton {
+    padding-right: 1em;
+}
+
+#amount {
+    margin-bottom: 1em;
+}
+
+@media only screen and (max-width: 768px),
+(max-width: 576px), (max-width: 991px) {
+
+    #productName {
+        padding-top: 1em;
+    }
+
+    #size, #remove {
+        padding-bottom: 1em;
+    }
+
+    #Shoppingcart {
+        padding: 1.2em;
+    }
+
+}
+
+@media only screen and (max-width: 378px) {
+
+    #Shoppingcart {
+        font-size: 13px;
+    }
+
+    #checkOutButton, #backButton, #incrementButton, #decrementButton {
+        font-size: 14px;
+    }
+
+}
+
+@media only screen and (max-width: 300px) {
+
+    #Shoppingcart {
+        font-size: 11px;
+    }
+
+    #checkOutButton, #backButton, #incrementButton, #decrementButton {
+        font-size: 12px;
+    }
+
+}
+
+@media only screen and (max-width: 200px) {
+
+    #Shoppingcart {
+        font-size: 7px;
+    }
+
+    #checkOutButton, #backButton, #incrementButton, #decrementButton {
+        font-size: 9px;
+    }
+
+}

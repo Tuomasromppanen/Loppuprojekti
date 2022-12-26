@@ -57,6 +57,26 @@
     font-weight: bold;
 }
 
+@media only screen and (max-width: 768px) {
+    div.wrapper-4, div.wrapper-6, div.wrapper-12 {
+        height: 100vw;
+    }
+
+    div.wrapper-4 button, div.wrapper-6 button {
+        font-size: 4.0vw;
+        background-color: orange;
+        top: 40%;
+        left: 34%;
+    }
+
+    div.wrapper-12 button {
+        font-size: 4.0vw;
+        background-color: orange;
+        top: 40%;
+        left: 38%;
+    }
+}
+
 .wrapper-6 {
     position: relative;
     margin: 0px;
@@ -78,7 +98,6 @@
     color: #102E62;
     font-weight: bold;
 
-
 }
 
 .wrapper-12 {
@@ -96,7 +115,7 @@
     background-color: orange;
     position: absolute;
     top: 40%;
-    left: 30%;
+    left: 38%;
     border: none;
     padding: 5px;
     color: #102E62;

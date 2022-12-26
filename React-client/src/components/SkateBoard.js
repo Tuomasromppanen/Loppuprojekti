@@ -15,17 +15,10 @@ function SkateBoard(props) {
 
     let params = useParams();
 
-    let address = '';
-
-    if (params.searchPhrase === undefined) {
-        address = ('http://localhost:3000/Publish/product.php/' + params.categoryskatetrnro)
-    } else {
-        address = ('http://localhost:3000/Publish/product.php/' + params.searchPhrase)
-    }
 
     useEffect(() => {
-        console.log(address)
-        axios.get(address)
+    
+        axios.get('http://localhost:3000/Publish/product.php/' + params.categoryskatetrnro)
         .then((response) => {
           const json = response.data;
           console.log(json);
@@ -92,7 +85,7 @@ function SkateBoard(props) {
                         </div>
 
                         <div className="col-xs-12 col-md-4 col-xl-4">
-                        <Link to={"/reebok/" + reebok.id}>
+                        <Link to={"/reebook/" + reebok.id}>
                         <img src={'http://localhost:3000/Publish/' + 'images/' + reebok.kuva} alt=""/>
                         <h4>{reebok.tuotenimi}</h4>
                         <p>{reebok.hinta}</p>

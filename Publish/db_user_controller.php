@@ -55,10 +55,4 @@ function checkUser($email, $pw) {
     
  }
 
-
-
-
-
-
-
 ?>

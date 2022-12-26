@@ -1,0 +1,75 @@
+/* .container [class*="col-"] {
+    border: 1px solid black;
+}  */
+
+html {
+    background: #102E62;
+}
+
+#format {
+    background-color: #102E62;
+}
+
+#format h3, h2 {
+    color: #F8A700;
+}
+
+#format label {
+    color: white;
+}
+
+#format {
+    margin-top: 20px;
+}
+
+#format .p-0, .p-1 {
+    margin-top: 4px;
+}
+
+#format input {
+    width: 100%;
+    border: none;
+    color: white;
+    background-color: #314c77;
+}
+
+#format button {
+    width: 100%;
+}
+
+#format button[type="submit"] {
+    margin-top: 12px;
+    border: none;
+    background-color: #F8A700;
+    color: #102E62;
+}
+
+#format button[type="button"] {
+    margin-top: 8px;
+    border: none;
+    background-color: #F8A700;
+    color: #102E62;
+}
+
+#format select {
+    width: 100%;
+    background-color: #314c77;
+    border: none;
+    color: white;
+    height: 30px;
+}
+
+.summa {
+    border: none;
+    background-color: #314c77;
+}
+
+.summa span:first-child {
+    color: white;
+}
+
+.summa span:last-child {
+    float: right;
+    margin-right: 3px;
+    color: white;
+}

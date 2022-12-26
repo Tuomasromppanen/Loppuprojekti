@@ -34,7 +34,7 @@ const Nav = ({url, cart, handleRemoveFromCart, setCart}) => {
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid p-0">
         <img src={Logo} alt="" id='logo'></img>
-        <div className="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mx-0 mb-2 mb-lg-0 d-flex">
             <li className='nav-item'>
               <Link className='nav-link' to="/">Kotisivu</Link>
@@ -52,13 +52,6 @@ const Nav = ({url, cart, handleRemoveFromCart, setCart}) => {
                 </li>
          
               </ul>
-            </li>
-
-            <li className='nav-item'>
-              <Link className='nav-link' to="/brandisivusto">Brandit</Link>
-            </li>
-            <li className="nav-item">
-              <Link className='nav-link' to="#">Tietoa meistä</Link>
             </li>
           </ul>
         </div>

@@ -16,16 +16,7 @@ const Basketball = (props) => {
 
   useEffect(() => {
 
-    let address = '';
-
-    if (params.searchPhrase === undefined) {
-        address = ('http://localhost:3000/Publish/product.php/' + params.categorybaskettrnro)
-    } else {
-        address = ('http://localhost:3000/Publish/product.php/' + params.searchPhrase)
-    }
-
-      console.log(address)
-      axios.get(address)
+      axios.get('http://localhost:3000/Publish/product.php/' + params.categorybaskettrnro)
       .then((response) => {
         const json = response.data;
         console.log(json);

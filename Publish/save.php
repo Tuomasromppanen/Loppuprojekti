@@ -5,127 +5,97 @@ require_once '../Publish/headers.php';
 
 $db = SqliteConnection('../mydatabase.db');
 
-// Insert asiakas
+// // try {
 
-$sql = 'INSERT INTO asiakas (etunimi, sukunimi, sahkoposti, osoite, postinumero, puhelinnumero, postitoimipaikka)
-values ("Pekka", "Kettonen", "Pekka.Kettonen@gmail.com", "Torikatu 4b", 90800, "0451126785", "Oulu")';
+// $sql = 'INSERT INTO asiakas (etunimi, sukunimi, sahkoposti, osoite, postinumero, puhelinnumero, postitoimipaikka)
+// values ("Terhi", "Kettonen", "Pekka.Kettonen@gmail.com", "Torikatu 4b", 90800, "045112678", "Oulu")';
 
-// $sqlx = 'INSERT INTO posti SELECT postinumero, postitoimipaikka FROM asiakas';
+// // Query asiakas
 
-$sqlx = 'CREATE TRIGGER insert_posti
-AFTER INSERT ON asiakas FOR EACH ROW
-BEGIN
-INSERT INTO posti (postinumero, postitoimipaikka)
-VALUES (NEW.postinumero, NEW.postitoimipaikka);
-END';
-
-// Query asiakas
-$sql = $db -> query($sql);
-
-// Query posti
-$sqlx = $db -> query($sqlx);
+// $asiakas = $db -> exec($sql);
 
 // // Insert tilaus
 
-// $sqlp = 'CREATE TRIGGER insert_tilaus
-// AFTER INSERT ON asiakas FOR EACH ROW
-// BEGIN
-// INSERT INTO tilaus (etunimi, tilauspvm, kanta_asiakas, maksutapa, postitapa)
-// VALUES (NEW.etunimi, CURRENT_TIMESTAMP, "Visa", "Nouto", "Oulu");
-// END';
+// $sql = 'INSERT INTO tilaus (astunnus, kanta_asiakas, maksutapa, postitapa)
+// SELECT a.Astunnus, "No", "Visa", "Paketti"
+// FROM asiakas a
+// LEFT JOIN tilaus t ON t.astunnus = a.astunnus
+// WHERE t.astunnus IS NULL';
 
-// $result = $db->query($sqlp);
+// $tilaus = $db -> exec($sql);
 
-// if ($result === false) {
-//   $errorInfo = $db->errorInfo();
-//   echo "Error creating trigger: " . $errorInfo[2];
-// }
+$input = json_decode(file_get_contents('php://input'));
+$etunimi = filter_var($input -> etunimi, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$sukunimi = filter_var($input -> sukunimi, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$sahkoposti = filter_var($input -> sahkoposti, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$osoite = filter_var($input -> sahkoposti, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$postinumero = filter_var($input -> postinumero, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$puhelinnumero = filter_var($input -> puhelinnumero, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$postitoimipaikka = filter_var($input -> postitoimipaikka, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-// $zip = filter_var($input->zip, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-// $home = filter_var($input->home, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$maksutapa = filter_var($input -> maksutapa, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$postitustapa = filter_var($input -> postitustapa, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-// $fname = filter_var($input->firstname, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-// $lname = filter_var($input->lastname, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-// $email = filter_var($input->email, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-// $address = filter_var($input->address, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-// $phone = filter_var($input->phone, FILTER_SANITIZE_SPECIAL_CHARS);
+$kpl = filter_var($input -> kpl ?? '', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$koko = filter_var($input -> koko ?? '', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-// $deliver = filter_var($input->deliver, FILTER_SANITIZE_SPECIAL_CHARS);
-// $payment = filter_var($input->payment, FILTER_SANITIZE_SPECIAL_CHARS);
+$cart = $input->cart;
 
-// $kpl = filter_var($input->kpl, FILTER_SANITIZE_SPECIAL_CHARS);
+try {
 
-// $cart = $input->cart;
+    $db->beginTransaction();
 
-// // Insert posti
-// $sql = "INSERT into posti (postinumero, postitoimipaikka) values
-// ('".
+    // Insert asiakas
+    $sql = "INSERT INTO asiakas (etunimi, sukunimi, sahkoposti, osoite, postinumero, puhelinnumero, postitoimipaikka)
+    values ('" .
+    filter_var($etunimi, FILTER_SANITIZE_FULL_SPECIAL_CHARS) . "', '" .
+    filter_var($sukunimi, FILTER_SANITIZE_FULL_SPECIAL_CHARS) . "', '" .
+    filter_var($sahkoposti, FILTER_SANITIZE_FULL_SPECIAL_CHARS) . "', '" .
+    filter_var($osoite, FILTER_SANITIZE_FULL_SPECIAL_CHARS) . "', '" .
+    filter_var($postinumero, FILTER_SANITIZE_FULL_SPECIAL_CHARS) . "', '" .
+    filter_var($puhelinnumero, FILTER_SANITIZE_FULL_SPECIAL_CHARS) . "', '" .
+    filter_var($postitoimipaikka, FILTER_SANITIZE_FULL_SPECIAL_CHARS) . 
+    "')";
 
-//     filter_var($zip, FILTER_SANITIZE_SPECIAL_CHARS). "','".
-//     filter_var($home, FILTER_SANITIZE_SPECIAL_CHARS)
+    $asiakas = $db -> exec($sql);
 
-// . "')";
+    // Postman 
 
-// $postinumero_primary->execute($sql);
+    // // Insert tilaus
+    $sql = "INSERT INTO tilaus (astunnus, maksutapa, postitapa)
+    SELECT a.Astunnus, '$maksutapa', '$postitustapa'
+    FROM asiakas a
+    LEFT JOIN tilaus t ON t.astunnus = a.astunnus
+    WHERE t.astunnus IS NULL";
 
-// // Insert postnumber to asiakas table
-// $sql = "INSERT into asiakas (postinumero) values (postinumero)";
-// $postinumero_children->execute($sql);
+    $tilaus = $db -> exec($sql);
 
-// // Insert asiakas
-// $sql = "INSERT into asiakas (etunimi, sukunimi, sahkoposti, osoite, puhelinnumero) values
-// ('".
+    // // Insert tilausrivi by logging throught cart (which is an array)
+    foreach ($cart as $product) {
+        $sql = "INSERT into tilausrivi (tilausnro, id, kpl, koko)
+        SELECT t.tilausnro, p.id, :kpl, :koko
+        FROM tilaus t
+        INNER JOIN tuote p ON p.id = :id
+        WHERE t.tilausnro = (SELECT MAX(tilausnro) FROM tilaus)";
 
-//     filter_var($fname, FILTER_SANITIZE_SPECIAL_CHARS). "','".
-//     filter_var($lname, FILTER_SANITIZE_SPECIAL_CHARS). "','".
-//     filter_var($email, FILTER_SANITIZE_SPECIAL_CHARS). "','".
-//     filter_var($address, FILTER_SANITIZE_SPECIAL_CHARS). "','".
-//     filter_var($phone, FILTER_SANITIZE_SPECIAL_CHARS)
-
-// . "')";
-
-// $astunnus_primary->execute($sql);
-
-// // Insert astunnus to tilaus table
-// $sql = "INSERT into tilaus (astunnus) values (astunnus)";
-// $astunnus_children->execute($sql);
-
-// // Insert tilaus
-// $sql = "INSERT into tilaus (kanta_asiakas, maksutapa, postitustapa) values
-// ('".
-
-//     filter_var($deliver, FILTER_SANITIZE_SPECIAL_CHARS). "','".
-//     filter_var($payment, FILTER_SANITIZE_SPECIAL_CHARS)
-
-// . "')";
-
-// $tilausnro_primary->execute($sql);
-
-// // Insert tilausnro to tilausrivi
-// $sql = "INSERT into tilausrivi (tilausnro) values (tilausnro)";
-// $tilausnro_children->execute($sql);
-
-// // Insert tilausrivi
-// $sql = "INSERT into tilaus (kpl) values
-// ('".
-
-//     filter_var($kpl, FILTER_SANITIZE_SPECIAL_CHARS)
-
-// . "')";
+        $tilausrivi = $db->prepare($sql);
+        $tilausrivi->bindValue(':kpl', $product->quantity, PDO::PARAM_INT);
+        $tilausrivi->bindValue(':koko', $product->koko, PDO::PARAM_INT);
+        $tilausrivi->bindValue(':id', $product->id, PDO::PARAM_INT);
+        $tilausrivi->execute();
+    }
 
 
 
+    $db->commit(); // Commit transaction
 
+    // Return 200 status and customer id
+    // header('HTTP/1.1 200 OK');
+    // $data = array('id' => $asiakas);
+    // echo json_encode($data);
 
-
-
-
-
-
-
-
-
-
-
+} catch (PDOException $e) {
+    $db->rollBack();
+}
 
 ?>

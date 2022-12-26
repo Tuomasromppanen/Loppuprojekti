@@ -3,6 +3,7 @@
     padding-left: 8px;
     padding-right: 8px;
     height: 60px;
+    z-index: 2;
 }
 
 .nav-item:not(.navbar-nav:first-child, .navbar-nav:last-child) {

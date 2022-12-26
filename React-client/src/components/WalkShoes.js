@@ -7,27 +7,21 @@ import axios from "axios"
 
 function WalkShoes(props) {
 
+    
     const [airforce, SetAirforce] = useState([])
     const [airforce720, SetAirforce720] = useState([])
     const [adidasy3, SetAdidasy3] = useState([])
     const [nikeairforce97, SetNikeAirforce97] = useState([])
     const [yeezy, SetYeezy] = useState([])
     const [adidasgazelle, SetAdidasgazelle] = useState([])
+    
 
 
     let params = useParams();
 
     useEffect(() => {
-        let address = '';
 
-        if (params.searchPhrase === undefined) {
-            address = ('http://localhost:3000/Publish/product.php/' + params.categorywalktrnro)
-        } else {
-            address = ('http://localhost:3000/Publish/product.php/' + params.searchPhrase)
-        }
-
-        console.log(address)
-        axios.get(address)
+        axios.get('http://localhost:3000/Publish/product.php/' + params.categorywalktrnro)
         .then((response) => {
           const json = response.data;
           console.log(json);
@@ -60,8 +54,6 @@ function WalkShoes(props) {
                     </div>
 
 
-
-                        
                         <div className="col-xs-12 col-md-4 col-xl-4">
                         <Link to={"/nikeairforce/" + airforce.id}>
                         <img src={'http://localhost:3000/Publish/images/' + airforce.kuva} alt="Loading..."/>

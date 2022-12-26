@@ -1,5 +1,6 @@
 import ShoppingcartItem from './ShoppingcartItem';
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/shoppingcart.css'
 
 const Shoppingcart = ({cart, handleRemoveFromCart, setCart}) => {
@@ -9,6 +10,12 @@ const Shoppingcart = ({cart, handleRemoveFromCart, setCart}) => {
   const handleClick = () => {
 
     setIsActive(!isActive)
+  }
+
+  let navigate = useNavigate();
+
+  function ShoppingcartSite() {
+      navigate("/shoppingcartsite")
   }
   
   console.log(handleRemoveFromCart)
@@ -48,7 +55,7 @@ const Shoppingcart = ({cart, handleRemoveFromCart, setCart}) => {
         <div className="checkoutBtnArea d-flex flex-column">
           <p className="checkoutTexts mx-4">Tilauksen arvio: {sum} €</p>
           <p className="checkoutTexts mx-4">Yhteensä: {sum} €</p>
-          <button className="shoppingcartBtns p-1 mx-4">Jatka kassalle</button>
+          <button className="shoppingcartBtns p-1 mx-4" onClick={ShoppingcartSite}>Jatka kassalle</button>
           <button className="shoppingcartBtns p-1 mx-4 my-2" onClick={() => setCart([])}>Tyhjennä</button>
         </div>
       </div>

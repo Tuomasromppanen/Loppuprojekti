@@ -4,7 +4,7 @@
 }
 
 .productPrice {
-    color: #dbdbdb;
+    color: white;
     font-size: 1em;
 }
 
@@ -13,9 +13,11 @@
     height: 110px;
 }
 
-.productLinks {
-    background-color: #f8A700;
-    color: #102E62;
-    border: 1px solid #102E62;
-    width: 80px;
+.link{
+    color: white;
+    text-decoration: none;
+}
+
+.link:hover {
+    color:#f8A700;
 }

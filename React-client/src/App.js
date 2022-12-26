@@ -3,7 +3,6 @@ import react, {useState,useEffect} from 'react'
 import Nav from './components/Nav'
 import FrontPage from './components/FrontPage'
 import Footer from './components/Footer'
-import Brands from './components/Brands'
 import WalkShoes from "./components/WalkShoes"
 import SkateBoard from "./components/SkateBoard"
 import Basketball from "./components/Basketball"
@@ -39,6 +38,9 @@ import SkateboardM from "./Kuvat/Sivustokuvat/Skatebackground.jpg"
 
 import Register from './components/Register'
 
+import ShoppingcartSite from "./components/ShoppingcartSite"
+import Format from './components/Format'
+
 const App = () => {
 
   const [navbarHidden,setNavbarHidden] = useState(false)
@@ -53,15 +55,6 @@ const App = () => {
     setCart(itemsWithoutRemoved);
     localStorage.setItem('cart', JSON.stringify(itemsWithoutRemoved));
   }
-  
-  // function addToCart(product) {
-
-  //     const newCart = [...cart,product];
-  //     setCart(newCart);
-  //     localStorage.setItem('cart', JSON.stringify(newCart));
-    
-  // }
-
   
   function addToCart(product) {
     
@@ -82,7 +75,6 @@ const App = () => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }
 
-
   return (
    <>
 
@@ -94,13 +86,13 @@ const App = () => {
     <Routes>
       <Route path="/" element={<FrontPage url={url}/>}></Route>
       {/* <Route path="mens" element={<Mens/>}></Route> */}
-      <Route path="skeittikengät/:categoryskatetrnro" /*path="miestenskeittikengat"*/ element={<SkateBoard categoryHeader="Skeittikengät" picture={[SkateboardM]} /*shoeSize={[40,41,42,44]}*//>}></Route>
-      <Route path="kävelykengät/:categorywalktrnro" /*path="miestenkavelykengat"*/ element={<WalkShoes categoryHeader="Kävelykengät" picture={[WalkingM]}/*shoeSize={[40,41,42,44]}*//>}></Route>
-      <Route path="koripallokengät/:categorybaskettrnro" /*path="miestenkoripallokengat"*/ element={<Basketball categoryHeader="Koripallokengät" picture={[BasketballM]}/*shoeSize={[40,41,42,44]}*//>}></Route>
-      <Route path="brandisivusto" element={<Brands/>}></Route>
-      <Route path="Register" element={<Register navbarHidingState={setNavbarHidden} footerHidingState={setFooterHidden} />}></Route>
+      <Route path="/skeittikengät/:categoryskatetrnro" /*path="miestenskeittikengat"*/ element={<SkateBoard categoryHeader="Skeittikengät" picture={[SkateboardM]} /*shoeSize={[40,41,42,44]}*//>}></Route>
+      <Route path="/kävelykengät/:categorywalktrnro" /*path="miestenkavelykengat"*/ element={<WalkShoes categoryHeader="Kävelykengät" picture={[WalkingM]}/*shoeSize={[40,41,42,44]}*//>}></Route>
+      <Route path="/koripallokengät/:categorybaskettrnro" /*path="miestenkoripallokengat"*/ element={<Basketball categoryHeader="Koripallokengät" picture={[BasketballM]}/*shoeSize={[40,41,42,44]}*//>}></Route>
+      <Route path="/register" element={<Register navbarHidingState={setNavbarHidden} footerHidingState={setFooterHidden} />}></Route>
+      <Route path="/shoppingcartsite" element={<ShoppingcartSite cart={cart} handleRemoveFromCart={handleRemoveFromCart} navbarHidingState={setNavbarHidden} footerHidingState={setFooterHidden}/>}></Route>
+      <Route path="/format" element={<Format cart={cart} navbarHidingState={setNavbarHidden} footerHidingState={setFooterHidden} />}></Route>
 
-      <Route path="nikeairforce/:productId" element={<NikeAirforce  addToCart={addToCart} walk={[WalkShoesM]} productHeader="Miesten kävelykengät" name="Nike Airforce" price="100€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
       <Route path="nikeairforce/:productId" element={<NikeAirforce  addToCart={addToCart} walk={[WalkShoesM]} productHeader="Miesten kävelykengät" name="Nike Airforce" price="100€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
       <Route path="nikeairforce720/:productId" element={<NikeAirforce720 addToCart={addToCart} walk={[WalkShoesM]} productHeader="Miesten kävelykengät" name="Nike Airforce 720" price="120€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
       <Route path="adidasy3/:productId" element={<AdidasY3 addToCart={addToCart} walk={[WalkShoesM]} productHeader="Miesten kävelykengät" name="Adidas Y3" price="200€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
@@ -118,7 +110,7 @@ const App = () => {
       <Route path="vansplitonpro/:productId" element={<Vanssplitonpro addToCart={addToCart} skate={[SkateBoardM]} productHeader="Miesten skeittikengät" name="Vans Split On Pro" price="50€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Vihreä"]} shoeSize={[40,41,42,44]}/>}></Route>
       <Route path="vansauthentic/:productId" element={<VansAuthentic addToCart={addToCart} skate={[SkateBoardM]} productHeader="Miesten skeittikengät" name="Vans Authentic" price="50€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Punainen"]} shoeSize={[40,41,42,44]}/>}></Route>
       <Route path="nikeblazer/:productId" element={<NikeBlazer addToCart={addToCart} skate={[SkateBoardM]} productHeader="Miesten skeittikengät" name="Nike Blazer" price="60€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Harmaa"]} shoeSize={[40,41,42,44]}/>}></Route>
-      <Route path="reebok/:productId" element={<Reebook addToCart={addToCart} skate={[SkateBoardM]} productHeader="Miesten skeittikengät" name="Reebok" price="90€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
+      <Route path="reebook/:productId" element={<Reebook addToCart={addToCart} skate={[SkateBoardM]} productHeader="Miesten skeittikengät" name="Reebok" price="90€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} color={["Musta"]} shoeSize={[40,41,42,44]}/>}></Route>
 
     </Routes>
 

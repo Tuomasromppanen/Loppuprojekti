@@ -157,6 +157,10 @@
     background-color: #fafafa;
 }
 
+span.bi {
+    color: black;
+}
+
 .line.col-12  {
     height: 4px;
     background-color: #102e6215;

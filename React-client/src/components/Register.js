@@ -9,7 +9,6 @@ const Register = (props) => {
 
     const [email, setEmail] = useState("")
     const [pw, SetPw] = useState("")
-    const [register, setRegister] = useState(null)
 
     let navigate = useNavigate();
 
@@ -19,9 +18,7 @@ const Register = (props) => {
         e.preventDefault() // Testailua varten
         axios.post("http://localhost:3000/Publish/rest_register.php", json ,{withCredentials:true})
         .then((response) => {
-            // Navigate to the next page after a successful submission
-            // setRegister(response.data)
-            navigate("/")
+            navigate("/", { data: response.data })
           })
           .catch(e => console.log(e.message));
       }

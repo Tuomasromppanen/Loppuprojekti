@@ -27,7 +27,6 @@ $query = $db->query($sql);
 $products = $query->fetchAll(PDO::FETCH_ASSOC);
 
 
-
 header('HTTP/1.1 200 OK');
 echo json_encode(array(
     "tuoteryhma" => $category['trnimi'],

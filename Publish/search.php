@@ -8,10 +8,12 @@ $db = SqliteConnection('../mydatabase.db');
 $uri = parse_url(filter_input(INPUT_SERVER, 'PATH_INFO'), PHP_URL_PATH);
 
 $parameters = explode('/', $uri);
-$trnro = $parameters[1];
+$phrase = $parameters[1];
 
-$sql = "SELECT * FROM tuote where name like '%$phrase%";
-$results = $query->fetchAll(PDO::FETCH_ASSOC);
+$sql = "SELECT * FROM tuote where tuotenimi like '%$phrase%'";
+$query = $db->query($sql);
+$results = $query->fetchALL(PDO::FETCH_ASSOC);
+
 header('HTTP/1.1 200 OK');
 echo json_encode($results);
 

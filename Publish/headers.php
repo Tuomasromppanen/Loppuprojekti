@@ -1,4 +1,5 @@
 <?php
+
 // Allow from any origin
 if (isset($_SERVER['HTTP_ORIGIN'])) {
     // Decide if the origin in $_SERVER['HTTP_ORIGIN'] is one
@@ -22,17 +23,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     exit(0);
 }
 
-// // Tämä toimii rekistöröinnin yhteydessä
-
-// header('Access-Control-Allow-Origin: http://localhost:3001');
-// header('Access-Control-Allow-Credentials: true');
-// header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-// header('Access-Control-Allow-Headers: Content-Type');
-// header('Access-Control-Max-Age: 3600');
-// header('Content-Type: application/json');
-
-// // Access-Control headers are received during OPTIONS requests
-// if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-
-//     exit(0);
-// }
