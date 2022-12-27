@@ -13,6 +13,15 @@ if(!isset($user->email) || !isset($user->pw)) {
     return;
 }
 
+$users = getUsers();
+foreach ($users as $registeredUser) {
+    if ($registeredUser['sahkoposti'] == $user->email) {
+        http_response_code(400);
+        echo "A user with the same email address has already registered. Please use a different email address.";
+        return;
+    }
+}
+
 
 // Oikeasti pitäisi käyttäjänimi ja salasana
 // tutkia järkevästi (mitkä merkit sallittuja jne ja ilmoittaa käyttäjälle)

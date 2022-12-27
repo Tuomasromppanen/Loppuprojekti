@@ -23,7 +23,7 @@ function LoginForm() {
           console.log(response.data)
         })
         .catch(e => {
-            alert('Wrong email or password. Please try again.')
+            alert('Salasana tai sähköposti on virheellinen')
         })
     }
 

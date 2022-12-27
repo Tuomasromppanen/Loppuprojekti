@@ -17,6 +17,23 @@ function registerUser($email, $pw) {
     
 }   
 
+
+/**
+ * Checks the user email if user have been already registered
+ */
+
+ function getUsers() {
+    // Connect to the database
+    $db = SqliteConnection('../mydatabase.db');
+
+    // Retrieve all the users
+    $sql = "SELECT sahkoposti FROM kayttaja";
+    $result = $db->prepare($sql);
+    $result->execute();
+    $users = $result->fetchAll();
+
+    return $users;
+}
 /**
  * Checks the user credentials and returns the username
  */

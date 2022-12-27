@@ -18,9 +18,10 @@ const Register = (props) => {
         e.preventDefault() // Testailua varten
         axios.post("http://localhost:3000/Publish/rest_register.php", json ,{withCredentials:true})
         .then((response) => {
+            alert('Tervetuloa käyttäjäksi')
             navigate("/", { data: response.data })
           })
-          .catch(e => console.log(e.message));
+          .catch(e => alert('Sähköposti on varattu'));
       }
 
       function Back () {
