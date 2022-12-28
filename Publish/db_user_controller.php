@@ -56,20 +56,4 @@ function checkUser($email, $pw) {
 
 }
 
-/**
- * Getting personal messages for the user
- */
-
- function getUserMessages($uname) {
-
-    $db = $db = SqliteConnection('../mydatabase.db');
-
-    $sql = "SELECT msg FROM messagetable WHERE username=?";
-    $statement = $db->prepare($sql);
-    $statement -> execute(array($uname));
-
-    return $statement->fetchAll(PDO::FETCH_COLUMN,0);
-    
- }
-
 ?>
