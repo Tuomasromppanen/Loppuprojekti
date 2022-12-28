@@ -5,25 +5,6 @@ require_once '../Publish/headers.php';
 
 $db = SqliteConnection('../mydatabase.db');
 
-// // try {
-
-// $sql = 'INSERT INTO asiakas (etunimi, sukunimi, sahkoposti, osoite, postinumero, puhelinnumero, postitoimipaikka)
-// values ("Terhi", "Kettonen", "Pekka.Kettonen@gmail.com", "Torikatu 4b", 90800, "045112678", "Oulu")';
-
-// // Query asiakas
-
-// $asiakas = $db -> exec($sql);
-
-// // Insert tilaus
-
-// $sql = 'INSERT INTO tilaus (astunnus, kanta_asiakas, maksutapa, postitapa)
-// SELECT a.Astunnus, "No", "Visa", "Paketti"
-// FROM asiakas a
-// LEFT JOIN tilaus t ON t.astunnus = a.astunnus
-// WHERE t.astunnus IS NULL';
-
-// $tilaus = $db -> exec($sql);
-
 $input = json_decode(file_get_contents('php://input'));
 $etunimi = filter_var($input -> etunimi, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $sukunimi = filter_var($input -> sukunimi, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -85,14 +66,7 @@ try {
         $tilausrivi->execute();
     }
 
-
-
-    $db->commit(); // Commit transaction
-
-    // Return 200 status and customer id
-    // header('HTTP/1.1 200 OK');
-    // $data = array('id' => $asiakas);
-    // echo json_encode($data);
+    $db->commit(); 
 
 } catch (PDOException $e) {
     $db->rollBack();

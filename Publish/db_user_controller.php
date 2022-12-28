@@ -17,7 +17,6 @@ function registerUser($email, $pw) {
     
 }   
 
-
 /**
  * Checks the user email if user have been already registered
  */
@@ -34,6 +33,7 @@ function registerUser($email, $pw) {
 
     return $users;
 }
+
 /**
  * Checks the user credentials and returns the username
  */
