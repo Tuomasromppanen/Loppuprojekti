@@ -52,6 +52,7 @@ const App = () => {
 
   const [cart, setCart] = useState([]);
   
+  
   function handleRemoveFromCart(product)  {
     const itemsWithoutRemoved = cart.filter(i => i.id !== product.id);
     setCart(itemsWithoutRemoved);
