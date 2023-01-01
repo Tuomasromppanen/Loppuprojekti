@@ -148,11 +148,10 @@ function Format(props) {
                                 </div>
 
                                 <div className="col-xs-12 col-md-12 col-xl-12 p-0">
-                                    <select onChange={e => SetPostitustapa(e.target.value)}>
-                                    
+                                    <select onChange={e => SetPostitustapa(e.target.value)} required>
+                                    <option value="" disabled selected>Valitse sopiva postitustapa</option>
                                             <option>Posti</option>
                                             <option>Pakettiautomaatti</option>
-                                     
                                     </select>
                                 </div>
 
@@ -161,11 +160,13 @@ function Format(props) {
                                 </div>
 
                                 <div className="col-xs-12 col-md-12 col-xl-12 p-0">
-                                    <select onChange={e => SetMaksutapa(e.target.value)}>
-                                            <option>Visa</option>
-                                            <option>Mastercard</option>
-                                    </select>
+                                <select onChange={e => SetMaksutapa(e.target.value)} required>
+                                    <option value="" disabled selected>Valitse sopiva maksutapa</option>
+                                    <option value="Visa">Visa</option>
+                                    <option value="Mastercard">Mastercard</option>
+                                </select>
                                 </div>
+
 
                                 <div className="col-xs-12 col-md-12 col-xl-12 p-0">
                                     <h3>Yhteenveto</h3>

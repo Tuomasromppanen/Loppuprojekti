@@ -22,9 +22,12 @@ $pw = $_POST['pw'];
 $verifield_email = checkUser($email, $pw);
 
 if($verifield_email) {
-    $_SESSION['sahkoposti'] = $verifield_email;
+    $email = $verifield_email['email'];
+    $is_admin = $verifield_email['admin'];
+    $_SESSION['sahkoposti'] = $email;
+    $_SESSION['admin'] = $is_admin;
     http_response_code(200);
-    echo $verifield_email;
+    echo json_encode(['email' => $email, 'admin' => $is_admin]);
 } else {
     http_response_code(401);
     echo "Väärä sähköposti ja salasana";

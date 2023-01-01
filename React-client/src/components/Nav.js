@@ -57,7 +57,7 @@ const Nav = ({url, cart, handleRemoveFromCart, setCart}) => {
         </div>
         <Searchbar />
         <div className="d-flex flex-row buttonContainer">
-          <LoginForm />
+         <LoginForm/>
           <Shoppingcart setCart={setCart} cart={cart} handleRemoveFromCart={handleRemoveFromCart} /> 
           <button className="navbar-toggler p-0" data-bs-toggle="collapse" type="button" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <svg id="hamburgerIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">

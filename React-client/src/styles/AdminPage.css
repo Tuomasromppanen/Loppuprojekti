@@ -1,0 +1,37 @@
+#admin-page {
+    background-color: #102E62;
+}
+
+#admin-page h3 {
+    color: #F8A700;
+}
+
+#admin-page label {
+    color: white;
+}
+
+#admin-page th:first-child {
+    padding-right: 10px;
+}
+
+#admin-page input[type="text"] {
+    background-color: #314c77;
+    color: white;
+    border: none;
+    margin-top: 10px;
+}
+
+#admin-page button[type="submit"] {
+    background-color: #F8A700;
+    border: none;
+    margin-left: 8px;
+}
+
+#admin-page button[type="button"] {
+    background-color: #F8A700;
+    border: none;
+    margin-left: 8px;
+}
+
+
+

@@ -11,7 +11,7 @@ function registerUser($email, $pw) {
     $db = SqliteConnection('../mydatabase.db');
     $pw = password_hash($pw, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO kayttaja (sahkoposti, salasana) VALUES (?,?)";
+    $sql = "INSERT INTO kayttaja (sahkoposti, salasana, admin) VALUES (?,?, 0)";
     $statement = $db->prepare($sql);
     $statement->execute(array($email, $pw));
     
@@ -38,22 +38,26 @@ function registerUser($email, $pw) {
  * Checks the user credentials and returns the username
  */
 
-function checkUser($email, $pw) {
-
+ function checkUser($email, $pw) {
     $db = SqliteConnection('../mydatabase.db');
 
-    $sql = "SELECT salasana FROM kayttaja WHERE sahkoposti=?";
+    $sql = "SELECT salasana, admin FROM kayttaja WHERE sahkoposti=?";
     $statement = $db->prepare($sql);
     $statement->execute(array($email));
 
-    $hashedpw = $statement->fetchColumn();
+    $row = $statement->fetch(PDO::FETCH_ASSOC);
+    $hashedpw = $row['salasana'];
+    $is_admin = $row['admin'];
 
     if(isset($hashedpw)) {
-        return password_verify($pw, $hashedpw) ? $email: null;
+        if(password_verify($pw, $hashedpw)) {
+            return ['email' => $email, 'admin' => $is_admin];
+        } else {
+            return null;
+        }
     }
 
     return null;
-
-}
+ }
 
 ?>

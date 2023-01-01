@@ -22,7 +22,6 @@ foreach ($users as $registeredUser) {
     }
 }
 
-
 // Oikeasti pitäisi käyttäjänimi ja salasana
 // tutkia järkevästi (mitkä merkit sallittuja jne ja ilmoittaa käyttäjälle)
 // $uname = strip_tags($user->uname);

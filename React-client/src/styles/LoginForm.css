@@ -97,6 +97,13 @@ form a:hover {
     width: 25px;
     height: 30px;
 }
+
+#AdminIcon {
+    color: white;
+    width: 25px;
+    height: 30px;
+}
+
 #loggedIcon {
     color: white;
     width: 25px;
@@ -107,6 +114,13 @@ form a:hover {
     background-color: #F8A700;
     color:#102E62;
     border: none;
+}
+
+#admin-button {
+    background-color: #F8A700;
+    color:#102E62;
+    border: none;
+    margin-bottom: 10px;
 }
 
 
@@ -121,6 +135,10 @@ form a:hover {
     .loginFormContainer:hover #loggedIcon {
          color: #F8A700 !important;
     }
+
+    .loginFormContainer:hover #AdminIcon {
+        color: #F8A700 !important;
+   }
 }
 @media only screen and (max-width: 375px), (max-width: 425px) {
     .object {

@@ -1,5 +1,6 @@
 import { Routes, Route} from "react-router-dom"
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
+import axios from 'axios'
 import Nav from './components/Nav'
 import FrontPage from './components/FrontPage'
 import Footer from './components/Footer'
@@ -40,6 +41,7 @@ import Register from './components/Register'
 
 import ShoppingcartSite from "./components/ShoppingcartSite"
 import Format from './components/Format'
+import AdminPage from "./components/AdminPage"
 
 const App = () => {
   
@@ -75,6 +77,8 @@ const App = () => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }
 
+
+
   return (
    <>
 
@@ -91,6 +95,7 @@ const App = () => {
       <Route path="/register" element={<Register navbarHidingState={setNavbarHidden} footerHidingState={setFooterHidden} />}></Route>
       <Route path="/shoppingcartsite" element={<ShoppingcartSite cart={cart} handleRemoveFromCart={handleRemoveFromCart} navbarHidingState={setNavbarHidden} footerHidingState={setFooterHidden}/>}></Route>
       <Route path="/format" element={<Format cart={cart} navbarHidingState={setNavbarHidden} footerHidingState={setFooterHidden} />}></Route>
+      <Route path="/admin" element={<AdminPage navbarHidingState={setNavbarHidden} footerHidingState={setFooterHidden} />}></Route>
 
    
       <Route path="nikeairforce/:productId"  element={<NikeAirforce  addToCart={addToCart} walk={[WalkShoesM]} productHeader="Miesten kävelykengät" name="Nike Airforce" price="100€" information={["Istuvuus: normaali", "Ylä: 100% nahka", "Ylävuori: 100% nahka", "Pohjallinen: 100% nahka", "Ulkopohja: 100% kumia", "Valimistettu: portugali"]} />}></Route>
